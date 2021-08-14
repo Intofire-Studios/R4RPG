@@ -32,12 +32,14 @@ def menu_fight(p):
                 if p.hp < 0:
                     consoleClear()
                     print("---")
-                    print("You loose!")
+                    print("You've lost!")
+                    exit()
                     return False
         if n == "2":
             p.hp += p.heal_hp
             if p.hp > p.max_hp:
                 p.hp = p.max_hp
+            consoleClear()
             print("---")
             print("Healing... {}".format(p.hp))
         if n == "3":
