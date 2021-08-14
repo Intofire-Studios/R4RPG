@@ -12,7 +12,7 @@ def cfgcreate(path):
     config.set("SAVE", "level", "1")
     config.set("SAVE", "sp", "5")
     config.set("SAVE", "xp", "0")
-    config.set("SAVE", "max_xp", "100")
+    config.set("SAVE", "max_xp", "5")
     config.set("SAVE", "heal_hp", "5")
     with open(path, "w+") as config_file:
         path = "saves.ini"

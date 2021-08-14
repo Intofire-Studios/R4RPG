@@ -1,14 +1,16 @@
 from extensions.cmdClear import consoleClear
-from random import randint
+from random import randint, choice
 from modules.menu_upgrade import menu_upgrade as menu_upgrade
+from modules import enemies
 
 def menu_fight(p):
     ehp = 5 * randint(4,20)
     epw = 2 * randint(1,5)
+    enemy = choice(enemies.enemy).capitalize()
     consoleClear()
     while ehp > 0:
         print("---")
-        print("ENEMY: {}. Power: {}".format(ehp, epw))
+        print("{}: {}. Power: {}".format(enemy, ehp, epw))
         print("{}: {}/{}. Power: {}".format(p.name, p.hp,p.max_hp, p.pw))
         print("---")
         print("1. Punch with power {}".format(p.pw))
@@ -50,8 +52,10 @@ def menu_fight(p):
                 print("---")
                 print("You can't run!")
     p.xp += 1
+    p.sp += 1
     if p.xp >= p.max_xp:
         p.xp = 0
         p.max_xp *= 5
         p.level += 1
+        p.sp += 2
         menu_upgrade(p)

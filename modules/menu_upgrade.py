@@ -20,3 +20,4 @@ def menu_upgrade(p):
         if n == "3":
             p.heal_hp += 1
             p.sp -= 1
+        consoleClear()

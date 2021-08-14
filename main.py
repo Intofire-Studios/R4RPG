@@ -6,10 +6,9 @@ if not os.path.exists('saves.ini'):
     consoleClear()
     cfgcreate('saves.ini')
 
-from modules import menu_upgrade, mainmenu, player
+from modules import mainmenu, player
 
 p = player.Player()
 
-menu_upgrade.menu_upgrade(p)
 consoleClear()
 mainmenu.mainmenu(p)

@@ -1,3 +1,4 @@
+from modules.menu_upgrade import menu_upgrade
 from time import sleep
 from modules.menu_stats import menu_stats as menu_stats
 from modules.menu_fight import menu_fight as menu_fight
@@ -12,6 +13,8 @@ def mainmenu(p):
         print("1. Go fight!")
         print("2. Check your stats")
         print("3. Close the game")
+        if p.sp > 0:
+            print("4. Upgrade your character")
         n = input("Number: ")
         if n == "1":
             menu_fight(p)
@@ -22,3 +25,5 @@ def mainmenu(p):
             cfgsave(p, 'saves.ini')
             sleep(3)
             exit()
+        if n == "4":
+            menu_upgrade(p)
