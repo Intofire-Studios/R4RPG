@@ -10,6 +10,7 @@ def cfgsave(p, path):
     os.remove(path)
     config.add_section("SAVE")
     config.set("SAVE", "name", p.name)
+    config.set("SAVE", "cls", p.cls)
     config.set("SAVE", "hp", str(p.hp))
     config.set("SAVE", "max_hp", str(p.max_hp))
     config.set("SAVE", "pw", str(p.pw))
