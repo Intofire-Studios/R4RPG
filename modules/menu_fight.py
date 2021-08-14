@@ -2,6 +2,7 @@ from extensions.cmdClear import consoleClear
 from random import randint, choice
 from modules.menu_upgrade import menu_upgrade as menu_upgrade
 from modules import enemies
+from time import sleep
 
 def menu_fight(p):
     ehp = 5 * randint(4,20)
@@ -33,8 +34,9 @@ def menu_fight(p):
                     consoleClear()
                     print("---")
                     print("You've lost!")
+                    print("---")
+                    sleep(5)
                     exit()
-                    return False
         if n == "2":
             p.hp += p.heal_hp
             if p.hp > p.max_hp:
