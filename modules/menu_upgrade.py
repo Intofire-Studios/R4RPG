@@ -1,5 +1,8 @@
+from extensions.cmdClear import consoleClear
+
 def menu_upgrade(p):
     while p.sp > 0:
+        consoleClear()
         print("---")
         print("Choose your upgrades! Skill points: {}".format(p.sp))
         print("---")

@@ -1,9 +1,15 @@
+from configparser import ConfigParser
+
+config = ConfigParser()
+config.read("saves.ini")
+
 class Player:
-    hp = 10
-    max_hp = 10
-    pw = 2
-    level = 1
-    sp = 5
-    xp = 0
-    max_xp = 100
-    heal_hp = 5
+    name = config.get("SAVE", "name")
+    hp = int(config.get("SAVE", "hp"))
+    max_hp = int(config.get("SAVE", "max_hp"))
+    pw = int(config.get("SAVE", "pw"))
+    level = int(config.get("SAVE", "level"))
+    sp = int(config.get("SAVE", "sp"))
+    xp = int(config.get("SAVE", "xp"))
+    max_xp = int(config.get("SAVE", "max_xp"))
+    heal_hp = int(config.get("SAVE", "heal_hp"))
