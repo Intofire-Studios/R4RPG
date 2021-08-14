@@ -30,7 +30,7 @@ def menu_fight(p):
                 consoleClear()
                 print("---")
                 print("Enemy hit you!")
-                if p.hp < 0:
+                if p.hp <= 0:
                     consoleClear()
                     print("---")
                     print("You've lost!")
