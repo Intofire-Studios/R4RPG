@@ -1,1 +1,1 @@
-enemy = ["wither", "witch", "skeleton", "zombie", "slime", "villager", "spider", "giant spider", "bee", "wolf", "bunch of bees"]
+enemy = ["wither", "witch", "skeleton", "zombie", "slime", "villager", "spider", "giant spider", "bee", "wolf", "bunch of bees", "snow slime", "vulture", "bat", "werewolf", "ghost", "dragon"]

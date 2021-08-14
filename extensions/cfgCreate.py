@@ -13,7 +13,7 @@ def cfgcreate(path):
             config.set("SAVE", "cls", "Heavy")
             config.set("SAVE", "hp", "25")
             config.set("SAVE", "max_hp", "25")
-            config.set("SAVE", "heal_hp", "15")
+            config.set("SAVE", "heal_hp", "5")
             config.set("SAVE", "pw", "2")
             d = 1
         elif cls.lower() == "medic":
@@ -27,7 +27,7 @@ def cfgcreate(path):
             config.set("SAVE", "cls", "Warrior")
             config.set("SAVE", "hp", "10")
             config.set("SAVE", "max_hp", "10")
-            config.set("SAVE", "heal_hp", "15")
+            config.set("SAVE", "heal_hp", "5")
             config.set("SAVE", "pw", "6")
             d = 1
         else:
