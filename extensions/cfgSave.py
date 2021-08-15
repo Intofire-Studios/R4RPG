@@ -16,9 +16,12 @@ def cfgsave(p, path):
     config.set("SAVE", "pw", str(p.pw))
     config.set("SAVE", "level", str(p.level))
     config.set("SAVE", "sp", str(p.sp))
+    config.set("SAVE", "money", str(p.money))
     config.set("SAVE", "xp", str(p.xp))
     config.set("SAVE", "max_xp", str(p.max_xp))
     config.set("SAVE", "heal_hp", str(p.heal_hp))
+    config.set("SAVE", "pwpotion", str(p.pwpotion))
+    config.set("SAVE", "hppotion", str(p.hppotion))
     with open(path, "w") as config_file:
         path = "saves.ini"
         config.write(config_file)

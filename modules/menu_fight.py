@@ -6,6 +6,7 @@ from modules import enemies
 from time import sleep
 
 def menu_fight(p):
+    k = 0
     rpcfightupdate(p)
     ehp = 5 * randint(4,20)
     epw = 2 * randint(1,5)
@@ -17,8 +18,9 @@ def menu_fight(p):
         print("{}: {}/{}. Power: {}".format(p.name, p.hp,p.max_hp, p.pw))
         print("---")
         print("1. Punch with power {}".format(p.pw))
-        print("2. Heal (+{})".format(p.heal_hp))
-        print("3. Run away!")
+        print("2. Use heal potion (+{}) ({} left)".format(p.heal_hp, p.hppotion))
+        print("3. Use power potion ({} left)".format(p.pwpotion))
+        print("4. Run away!")
         n = input("Number: ")
         if n == "1":
             r = randint(1,2)
@@ -43,14 +45,34 @@ def menu_fight(p):
                     sleep(5)
                     exit()
         if n == "2":
-            p.hp += p.heal_hp
-            if p.hp > p.max_hp:
-                p.hp = p.max_hp
             consoleClear()
-            print("---")
-            print("Healing... {}".format(p.hp))
-            rpcfightupdate(p)
+            if p.hppotion > 0:
+                consoleClear()
+                p.hppotion -= 1
+                p.hp += p.heal_hp
+                if p.hp > p.max_hp:
+                    p.hp = p.max_hp
+                consoleClear()
+                print("---")
+                print("Healing... {}".format(p.hp))
+                rpcfightupdate(p)
+            else:
+                print("---")
+                print("Not enough potions!")
         if n == "3":
+            consoleClear()
+            if p.pwpotion > 0:
+                consoleClear()
+                k += 1
+                p.pwpotion -= 1
+                p.pw += 5
+                print("---")
+                print("Drinking the potion... {}".format(p.pw))
+                rpcfightupdate(p)
+            else:
+                print("---")
+                print("Not enough potions!")
+        if n == "4":
             r = randint(1,3)
             if r == "3":
                 consoleClear()
@@ -62,9 +84,12 @@ def menu_fight(p):
                 print("---")
                 print("You can't run!")
             rpcfightupdate(p)
+    if k != 0:
+        p.pw -= k*5
     rpcupdate(p)
     p.xp += 1
     p.sp += 1
+    p.money += 1
     if p.xp >= p.max_xp:
         p.xp = 0
         p.max_xp *= 5

@@ -24,3 +24,4 @@ def menu_upgrade(p):
             p.heal_hp += 1
             p.sp -= 1
         consoleClear()
+    consoleClear()

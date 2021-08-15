@@ -13,4 +13,8 @@ def menu_stats(p):
     print("Healing: {}".format(p.heal_hp))
     print("Power: {}".format(p.pw))
     print("---")
+    print("Power potions: {}".format(p.pwpotion))
+    print("Heal potions: {}".format(p.hppotion))
+    print("---")
     input("Enter to continue.")
+    consoleClear()

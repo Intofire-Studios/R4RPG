@@ -34,8 +34,11 @@ def cfgcreate(path):
             d = 0
     config.set("SAVE", "level", "1")
     config.set("SAVE", "sp", "0")
+    config.set("SAVE", "money", "0")
     config.set("SAVE", "xp", "0")
     config.set("SAVE", "max_xp", "5")
+    config.set("SAVE", "pwpotion", "0")
+    config.set("SAVE", "hppotion", "10")
     with open(path, "w+") as config_file:
         path = "saves.ini"
         config.write(config_file)
