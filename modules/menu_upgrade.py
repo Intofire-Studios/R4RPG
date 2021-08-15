@@ -1,4 +1,5 @@
 from extensions.cmdClear import consoleClear
+from extensions.richPresence import rpcupdate as rpcupdate 
 
 def menu_upgrade(p):
     while p.sp > 0:
@@ -14,9 +15,11 @@ def menu_upgrade(p):
             p.hp += 5
             p.sp -= 1
             p.max_hp += 5
+            rpcupdate(p)
         if n == "2":
             p.pw += 1
             p.sp -= 1
+            rpcupdate(p)
         if n == "3":
             p.heal_hp += 1
             p.sp -= 1

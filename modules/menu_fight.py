@@ -1,10 +1,12 @@
 from extensions.cmdClear import consoleClear
 from random import randint, choice
 from modules.menu_upgrade import menu_upgrade as menu_upgrade
+from extensions.richPresence import rpclose, rpcupdate, rpcfightupdate
 from modules import enemies
 from time import sleep
 
 def menu_fight(p):
+    rpcfightupdate(p)
     ehp = 5 * randint(4,20)
     epw = 2 * randint(1,5)
     enemy = choice(enemies.enemy).capitalize()
@@ -25,16 +27,19 @@ def menu_fight(p):
                 consoleClear()
                 print("---")
                 print("You hit the enemy!")
+                rpcfightupdate(p)
             if r == 2:
                 p.hp -= epw
                 consoleClear()
                 print("---")
                 print("Enemy hit you!")
+                rpcfightupdate(p)
                 if p.hp <= 0:
                     consoleClear()
                     print("---")
                     print("You've lost!")
                     print("---")
+                    rpclose(p)
                     sleep(5)
                     exit()
         if n == "2":
@@ -44,6 +49,7 @@ def menu_fight(p):
             consoleClear()
             print("---")
             print("Healing... {}".format(p.hp))
+            rpcfightupdate(p)
         if n == "3":
             r = randint(1,3)
             if r == "3":
@@ -55,6 +61,8 @@ def menu_fight(p):
                 consoleClear()
                 print("---")
                 print("You can't run!")
+            rpcfightupdate(p)
+    rpcupdate(p)
     p.xp += 1
     p.sp += 1
     if p.xp >= p.max_xp:
