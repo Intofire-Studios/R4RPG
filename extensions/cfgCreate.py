@@ -7,6 +7,7 @@ def cfgcreate(path):
     d = 0
     config.add_section("SAVE")
     config.set("SAVE", "name", input("Enter your name: "))
+    config.set("SAVE", "discordstatus", input("Enable Discord Rich Presence? (Yes or No): ").lower())
     while d != 1:
         cls = input("Enter desired character class (Heavy, Medic or Warrior): ")
         if cls.lower() == "heavy":

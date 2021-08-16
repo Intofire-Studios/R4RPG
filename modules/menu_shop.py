@@ -1,5 +1,5 @@
 from extensions.cmdClear import consoleClear
-from extensions.richPresence import rpcupdate as rpcupdate 
+from extensions.richPresence import rpcupdate
 
 def menu_shop(p):
     consoleClear()
@@ -8,7 +8,7 @@ def menu_shop(p):
         print("Choose items! Money: {}".format(p.money))
         print("---")
         print("[COST: 5] 1. Power potion (+5 to power for one fight) — {} in the inventory".format(p.pwpotion))
-        print("[COST: 1] 2. 3 heal potions (+{} to HP) — {} in the inventory".format(p.heal_hp, p.hppotion))
+        print("[COST: 1] 2. 5 heal potions (+{} to HP) — {} in the inventory".format(p.heal_hp, p.hppotion))
         n = input("Number: ")
         consoleClear()
         if n == "1":
@@ -21,7 +21,7 @@ def menu_shop(p):
                 print("Not enough money.")
                 rpcupdate(p)
         if n == "2":
-            p.hppotion += 3
+            p.hppotion += 5
             p.money -= 1
             rpcupdate(p)
     consoleClear()

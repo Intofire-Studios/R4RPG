@@ -1,5 +1,5 @@
 from extensions.cmdClear import consoleClear
-from extensions.richPresence import rpcupdate as rpcupdate 
+from extensions.richPresence import rpcupdate
 
 def menu_upgrade(p):
     while p.sp > 0:

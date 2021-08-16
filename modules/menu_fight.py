@@ -1,15 +1,16 @@
 from extensions.cmdClear import consoleClear
 from random import randint, choice
-from modules.menu_upgrade import menu_upgrade as menu_upgrade
+from modules.menu_upgrade import menu_upgrade
 from extensions.richPresence import rpclose, rpcupdate, rpcfightupdate
 from modules import enemies
 from time import sleep
+from math import ceil
 
 def menu_fight(p):
-    k = 0
+    usedpwpotions = 0
     rpcfightupdate(p)
-    ehp = 5 * randint(4,20)
-    epw = 2 * randint(1,5)
+    ehp = 5 * randint(4,20) + ceil(p.max_hp * 0.25)
+    epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
     enemy = choice(enemies.enemy).capitalize()
     consoleClear()
     while ehp > 0:
@@ -63,7 +64,7 @@ def menu_fight(p):
             consoleClear()
             if p.pwpotion > 0:
                 consoleClear()
-                k += 1
+                usedpwpotions += 1
                 p.pwpotion -= 1
                 p.pw += 5
                 print("---")
@@ -84,8 +85,8 @@ def menu_fight(p):
                 print("---")
                 print("You can't run!")
             rpcfightupdate(p)
-    if k != 0:
-        p.pw -= k*5
+    if usedpwpotions != 0:
+        p.pw -= usedpwpotions*5
     rpcupdate(p)
     p.xp += 1
     p.sp += 1

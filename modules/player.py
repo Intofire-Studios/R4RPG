@@ -6,6 +6,7 @@ config.read("saves.ini")
 class Player:
     name = config.get("SAVE", "name")
     cls = config.get("SAVE", "cls")
+    discordstatus = config.get("SAVE", "discordstatus")
     hp = int(config.get("SAVE", "hp"))
     max_hp = int(config.get("SAVE", "max_hp"))
     pw = int(config.get("SAVE", "pw"))
