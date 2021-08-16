@@ -1,3 +1,4 @@
+from extensions.richPresence import rpcupdate
 from modules.menu_upgrade import menu_upgrade
 from time import sleep
 from modules.menu_stats import menu_stats
@@ -9,6 +10,7 @@ from modules.menu_shop import menu_shop
 def mainmenu(p):
     consoleClear()
     while True:
+        rpcupdate(p)
         print("---")
         print("Choose what to do")
         print("1. Go fight!")

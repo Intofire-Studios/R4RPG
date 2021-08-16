@@ -1,7 +1,8 @@
 from extensions.cmdClear import consoleClear
-from extensions.richPresence import rpcupdate
+from extensions.richPresence import rpcshopupdate, rpcupdate
 
 def menu_shop(p):
+    rpcshopupdate(p)
     consoleClear()
     while p.money > 0:
         print("---")
@@ -16,15 +17,15 @@ def menu_shop(p):
             if p.money >= 5:
                 p.money -= 5
                 p.pwpotion += 1
-                rpcupdate(p)
+                rpcshopupdate(p)
             else:
                 print("---")
                 print("Not enough money.")
-                rpcupdate(p)
+                rpcshopupdate(p)
         if n == "2":
             p.hppotion += 5
             p.money -= 1
-            rpcupdate(p)
+            rpcshopupdate(p)
         if n == "3":
             break
     consoleClear()

@@ -1,8 +1,9 @@
 from extensions.cmdClear import consoleClear
-from extensions.richPresence import rpcupdate
+from extensions.richPresence import rpcupdate, rpcupgradeupdate
 
 def menu_upgrade(p):
     while p.sp > 0:
+        rpcupgradeupdate(p)
         consoleClear()
         print("---")
         print("Choose your upgrades! Skill points: {}".format(p.sp))
@@ -17,17 +18,19 @@ def menu_upgrade(p):
             p.hp += 5
             p.sp -= 1
             p.max_hp += 5
-            rpcupdate(p)
+            rpcupgradeupdate(p)
         if n == "2":
             p.pw += 1
             p.sp -= 1
-            rpcupdate(p)
+            rpcupgradeupdate(p)
         if n == "3":
             p.heal_hp += 1
             p.sp -= 1
+            rpcupgradeupdate(p)
         if n == "4":
             p.plus_pw += 1
             p.sp -= 1
+            rpcupgradeupdate(p)
         if n == "5":
             break
         consoleClear()

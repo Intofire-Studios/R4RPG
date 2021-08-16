@@ -1,6 +1,8 @@
+from extensions.richPresence import rpcstatsupdate
 from extensions.cmdClear import consoleClear
 
 def menu_stats(p):
+    rpcstatsupdate(p)
     consoleClear()
     print("---")
     print("Player stats!")
