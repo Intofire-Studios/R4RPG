@@ -12,5 +12,4 @@ from modules import mainmenu, player
 p = player.Player()
 
 rpc(p)
-consoleClear()
 mainmenu.mainmenu(p)

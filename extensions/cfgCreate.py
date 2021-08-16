@@ -37,6 +37,7 @@ def cfgcreate(path):
     config.set("SAVE", "sp", "0")
     config.set("SAVE", "money", "0")
     config.set("SAVE", "xp", "0")
+    config.set("SAVE", "plus_pw", "1")
     config.set("SAVE", "max_xp", "5")
     config.set("SAVE", "pwpotion", "0")
     config.set("SAVE", "hppotion", "10")

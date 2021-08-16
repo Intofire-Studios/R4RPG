@@ -9,9 +9,20 @@ from math import ceil
 def menu_fight(p):
     usedpwpotions = 0
     rpcfightupdate(p)
-    ehp = 5 * randint(4,20) + ceil(p.max_hp * 0.25)
-    epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
-    enemy = choice(enemies.enemy).capitalize()
+    enemy = choice(enemies.enemy)
+
+    if enemy in enemies.enemyregular:
+        ehp = randint(10,20) + ceil(p.max_hp * 0.25)
+        epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
+    elif enemy in enemies.enemynormal:
+        ehp = randint(30,50) + ceil(p.max_hp * 0.25)
+        epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
+    elif enemy in enemies.enemyboss:
+        ehp = randint(75,100) + ceil(p.max_hp * 0.25)
+        epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
+
+    enemy = enemy.capitalize()
+
     consoleClear()
     while ehp > 0:
         print("---")
@@ -20,7 +31,7 @@ def menu_fight(p):
         print("---")
         print("1. Punch with power {}".format(p.pw))
         print("2. Use heal potion (+{}) ({} left)".format(p.heal_hp, p.hppotion))
-        print("3. Use power potion ({} left)".format(p.pwpotion))
+        print("3. Use power potion (+{}) ({} left)".format(p.plus_pw, p.pwpotion))
         print("4. Run away!")
         n = input("Number: ")
         if n == "1":
@@ -66,7 +77,7 @@ def menu_fight(p):
                 consoleClear()
                 usedpwpotions += 1
                 p.pwpotion -= 1
-                p.pw += 5
+                p.pw += p.plus_pw
                 print("---")
                 print("Drinking the potion... {}".format(p.pw))
                 rpcfightupdate(p)
@@ -86,7 +97,7 @@ def menu_fight(p):
                 print("You can't run!")
             rpcfightupdate(p)
     if usedpwpotions != 0:
-        p.pw -= usedpwpotions*5
+        p.pw -= usedpwpotions * p.plus_pw
     rpcupdate(p)
     p.xp += 1
     p.sp += 1

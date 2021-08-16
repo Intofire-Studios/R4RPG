@@ -21,6 +21,7 @@ def cfgsave(p, path):
     config.set("SAVE", "xp", str(p.xp))
     config.set("SAVE", "max_xp", str(p.max_xp))
     config.set("SAVE", "heal_hp", str(p.heal_hp))
+    config.set("SAVE", "plus_pw", str(p.plus_pw))
     config.set("SAVE", "pwpotion", str(p.pwpotion))
     config.set("SAVE", "hppotion", str(p.hppotion))
     with open(path, "w") as config_file:

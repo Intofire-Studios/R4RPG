@@ -7,8 +7,9 @@ def menu_shop(p):
         print("---")
         print("Choose items! Money: {}".format(p.money))
         print("---")
-        print("[COST: 5] 1. Power potion (+5 to power for one fight) — {} in the inventory".format(p.pwpotion))
+        print("[COST: 5] 1. Power potion (+{} to Power for one fight) — {} in the inventory".format(p.plus_pw, p.pwpotion))
         print("[COST: 1] 2. 5 heal potions (+{} to HP) — {} in the inventory".format(p.heal_hp, p.hppotion))
+        print("3. Exit to main menu")
         n = input("Number: ")
         consoleClear()
         if n == "1":
@@ -24,4 +25,6 @@ def menu_shop(p):
             p.hppotion += 5
             p.money -= 1
             rpcupdate(p)
+        if n == "3":
+            break
     consoleClear()

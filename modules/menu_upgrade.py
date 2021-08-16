@@ -7,9 +7,11 @@ def menu_upgrade(p):
         print("---")
         print("Choose your upgrades! Skill points: {}".format(p.sp))
         print("---")
-        print("1. HP {}/{}".format(p.hp, p.max_hp))
-        print("2. Power {}".format(p.pw))
-        print("3. Heal points {}".format(p.heal_hp))
+        print("1. HP: {}/{}".format(p.hp, p.max_hp))
+        print("2. Power: {}".format(p.pw))
+        print("3. Heal potions power: {}".format(p.heal_hp))
+        print("4. Power potions power: {}".format(p.plus_pw))
+        print("5. Exit to main menu")
         n = input("Number: ")
         if n == "1":
             p.hp += 5
@@ -23,5 +25,10 @@ def menu_upgrade(p):
         if n == "3":
             p.heal_hp += 1
             p.sp -= 1
+        if n == "4":
+            p.plus_pw += 1
+            p.sp -= 1
+        if n == "5":
+            break
         consoleClear()
     consoleClear()

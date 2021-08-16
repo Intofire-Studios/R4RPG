@@ -16,5 +16,6 @@ class Player:
     xp = int(config.get("SAVE", "xp"))
     max_xp = int(config.get("SAVE", "max_xp"))
     heal_hp = int(config.get("SAVE", "heal_hp"))
+    plus_pw = int(config.get("SAVE", "plus_pw"))
     pwpotion = int(config.get("SAVE", "pwpotion"))
     hppotion = int(config.get("SAVE", "hppotion"))
