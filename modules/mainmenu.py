@@ -23,7 +23,8 @@ def mainmenu(p):
             print("4. Open shop")
         else:
             print("4. <CLOSED>")
-        print("5. Close the game")
+        print("5. Save the game")
+        print("6. Close the game")
         n = input("Number: ")
         if n == "1":
             menu_fight(p)
@@ -34,6 +35,9 @@ def mainmenu(p):
         if n == "4":
             menu_shop(p)
         if n == "5":
+            cfgsave(p, 'saves.ini')
+            consoleClear()
+        if n == "6":
             print("Closing the game...")
             cfgsave(p, 'saves.ini')
             sleep(3)

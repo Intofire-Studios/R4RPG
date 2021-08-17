@@ -1,15 +1,13 @@
 import os
-from extensions.cfgCreate import cfgcreate
-from extensions.cmdClear import consoleClear
-from extensions.richPresence import rpc
+from extensions import cfgCreate, cmdClear, richPresence
 
 if not os.path.exists('saves.ini'):
-    consoleClear()
-    cfgcreate('saves.ini')
+    cmdClear.consoleClear()
+    cfgCreate.cfgcreate('saves.ini')
 
 from modules import mainmenu, player
 
 p = player.Player()
 
-rpc(p)
+richPresence.rpc(p)
 mainmenu.mainmenu(p)
