@@ -1,14 +1,12 @@
 from configparser import ConfigParser
 from modules import player
-import os
 
 config = ConfigParser()
 
 p = player.Player()
 
 def cfgsave(p, path):
-    os.remove(path)
-    config.add_section("SAVE")
+    config.read(path)
     config.set("SAVE", "name", p.name)
     config.set("SAVE", "cls", p.cls)
     config.set("SAVE", "discordstatus", p.discordstatus)

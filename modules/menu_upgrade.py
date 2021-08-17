@@ -1,8 +1,10 @@
+from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcupdate, rpcupgradeupdate
 
 def menu_upgrade(p):
     while p.sp > 0:
+        cfgsave(p, 'saves.ini')
         rpcupgradeupdate(p)
         consoleClear()
         print("---")
@@ -35,3 +37,4 @@ def menu_upgrade(p):
             break
         consoleClear()
     consoleClear()
+    cfgsave(p, 'saves.ini')

@@ -1,10 +1,13 @@
+from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
-from extensions.richPresence import rpcshopupdate, rpcupdate
+from extensions.richPresence import rpcshopupdate
 
 def menu_shop(p):
+    cfgsave(p, 'saves.ini')
     rpcshopupdate(p)
     consoleClear()
     while p.money > 0:
+        cfgsave(p, 'saves.ini')
         print("---")
         print("Choose items! Money: {}".format(p.money))
         print("---")
@@ -29,3 +32,4 @@ def menu_shop(p):
         if n == "3":
             break
     consoleClear()
+    cfgsave(p, 'saves.ini')

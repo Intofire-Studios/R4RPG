@@ -1,3 +1,4 @@
+from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
 from random import randint, choice
 from modules.menu_upgrade import menu_upgrade
@@ -7,6 +8,7 @@ from time import sleep
 from math import ceil
 
 def menu_fight(p):
+    cfgsave(p, 'saves.ini')
     usedpwpotions = 0
     rpcfightupdate(p)
     enemy = choice(enemies.enemy)
@@ -102,6 +104,7 @@ def menu_fight(p):
     p.xp += 1
     p.sp += 1
     p.money += 1
+    cfgsave(p, 'saves.ini')
     if p.xp >= p.max_xp:
         p.xp = 0
         p.max_xp *= 5

@@ -44,3 +44,4 @@ def cfgcreate(path):
     with open(path, "w+") as config_file:
         path = "saves.ini"
         config.write(config_file)
+    config_file.close()
