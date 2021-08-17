@@ -16,11 +16,11 @@ def mainmenu(p):
         print("1. Go fight!")
         print("2. Check your stats")
         if p.sp > 0:
-            print("3. Upgrade your character")
+            print("3. Upgrade your character | Skill Points: {}".format(p.sp))
         else:
             print("3. <CLOSED>")
         if p.money > 0:
-            print("4. Open shop")
+            print("4. Open shop              | Money: {}".format(p.money))
         else:
             print("4. <CLOSED>")
         print("5. Close the game")
