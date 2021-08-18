@@ -17,11 +17,11 @@ def menu_fight(p):
         ehp = randint(10,20) + ceil(p.max_hp * 0.25)
         epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
     elif enemy in enemies.enemynormal:
-        ehp = randint(30,50) + ceil(p.max_hp * 0.25)
-        epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
+        ehp = randint(30,50) + ceil(p.max_hp * 0.33)
+        epw = 2 * randint(3,7) + ceil(p.pw * 0.33)
     elif enemy in enemies.enemyboss:
-        ehp = randint(75,100) + ceil(p.max_hp * 0.25)
-        epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
+        ehp = randint(75,100) + ceil(p.max_hp * 0.5)
+        epw = 2 * randint(5,10) + ceil(p.pw * 0.5)
 
     enemy = enemy.capitalize()
 

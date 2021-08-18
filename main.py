@@ -1,9 +1,6 @@
-import os
-from extensions import cfgCreate, cmdClear, richPresence
+from extensions import cfgCreate, richPresence
 
-if not os.path.exists('saves.ini'):
-    cmdClear.consoleClear()
-    cfgCreate.cfgcreate('saves.ini')
+cfgCreate.cfgcreate('saves.ini')
 
 from modules import mainmenu, player
 

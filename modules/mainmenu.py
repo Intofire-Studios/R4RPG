@@ -8,11 +8,12 @@ from extensions.cmdClear import consoleClear
 from modules.menu_shop import menu_shop
 
 def mainmenu(p):
-    consoleClear()
     while True:
+        consoleClear()
         rpcupdate(p)
         print("---")
         print("Choose what to do")
+        print("---")
         print("1. Go fight!")
         print("2. Check your stats")
         if p.sp > 0:

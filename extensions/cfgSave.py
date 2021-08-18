@@ -9,7 +9,6 @@ def cfgsave(p, path):
     config.read(path)
     config.set("SAVE", "name", p.name)
     config.set("SAVE", "cls", p.cls)
-    config.set("SAVE", "discordstatus", p.discordstatus)
     config.set("SAVE", "hp", str(p.hp))
     config.set("SAVE", "max_hp", str(p.max_hp))
     config.set("SAVE", "pw", str(p.pw))
@@ -23,6 +22,5 @@ def cfgsave(p, path):
     config.set("SAVE", "pwpotion", str(p.pwpotion))
     config.set("SAVE", "hppotion", str(p.hppotion))
     with open(path, "w") as config_file:
-        path = "saves.ini"
         config.write(config_file)
     config_file.close()
