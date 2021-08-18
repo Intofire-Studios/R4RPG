@@ -18,3 +18,6 @@ class Player:
     plus_pw = config.getint("SAVE", "plus_pw")
     pwpotion = config.getint("SAVE", "pwpotion")
     hppotion = config.getint("SAVE", "hppotion")
+    location = config.get("SAVE", "location")
+    spawnpass = config.getint("SAVE", "spawnpass")
+    sandspass = config.getint("SAVE", "sandspass")

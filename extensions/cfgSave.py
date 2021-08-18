@@ -21,6 +21,9 @@ def cfgsave(p, path):
     config.set("SAVE", "plus_pw", str(p.plus_pw))
     config.set("SAVE", "pwpotion", str(p.pwpotion))
     config.set("SAVE", "hppotion", str(p.hppotion))
+    config.set("SAVE", "location", p.location)
+    config.set("SAVE", "spawnpass", str(p.spawnpass))
+    config.set("SAVE", "sandspass", str(p.sandspass))
     with open(path, "w") as config_file:
         config.write(config_file)
     config_file.close()

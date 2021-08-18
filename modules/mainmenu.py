@@ -1,3 +1,4 @@
+from modules.menu_location import menu_location
 from extensions.richPresence import rpcupdate
 from modules.menu_upgrade import menu_upgrade
 from time import sleep
@@ -26,7 +27,8 @@ def mainmenu(p):
             print("4. Open shop              | Money: {}".format(p.money))
         else:
             print("4. <CLOSED>")
-        print("5. Close the game         | Last save: {}".format(time.ctime(lastsave)))
+        print("5. Change your location   | Current location: {}".format(p.location.capitalize()))
+        print("6. Close the game         | Last save: {}".format(time.ctime(lastsave)))
         n = input("Number: ")
         if n == "1":
             menu_fight(p)
@@ -37,6 +39,8 @@ def mainmenu(p):
         if n == "4":
             menu_shop(p)
         if n == "5":
+            menu_location(p)
+        if n == "6":
             print("Closing the game...")
             cfgsave(p, 'saves.ini')
             sleep(3)

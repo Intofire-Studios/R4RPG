@@ -19,5 +19,11 @@ def menu_stats(p):
     print("Power potions: {}".format(p.pwpotion))
     print("Heal potions: {}".format(p.hppotion))
     print("---")
+    print("Travel passes:")
+    if p.spawnpass == 1:
+        print("- Spawn Pass")
+    if p.sandspass == 1:
+        print("- Sands Pass")
+    print("---")
     input("Enter to continue.")
     consoleClear()
