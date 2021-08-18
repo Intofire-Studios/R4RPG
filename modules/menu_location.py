@@ -1,11 +1,11 @@
 from extensions.cfgSave import cfgsave
-from extensions.richPresence import rpcupdate
+from extensions.richPresence import rpclocationupdate
 from extensions.cmdClear import consoleClear
 
 def menu_location(p):
     while True:
         consoleClear()
-        rpcupdate(p)
+        rpclocationupdate(p)
         print("---")
         print("Choose next location!")
         print("---")
@@ -18,10 +18,10 @@ def menu_location(p):
         if n == "1":
             p.location = "spawn"
             cfgsave(p, 'saves.ini')
-            rpcupdate(p)
+            rpclocationupdate(p)
             return False
         if n == "2" and p.sandspass == 1:
             p.location = "sands"
             cfgsave(p, 'saves.ini')
-            rpcupdate(p)
+            rpclocationupdate(p)
             return False
