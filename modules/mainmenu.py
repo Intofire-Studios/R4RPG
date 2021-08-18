@@ -6,16 +6,18 @@ from modules.menu_fight import menu_fight
 from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
 from modules.menu_shop import menu_shop
+import os.path, time
 
 def mainmenu(p):
     while True:
+        lastsave = os.path.getmtime('saves.ini')
         consoleClear()
         rpcupdate(p)
         print("---")
         print("Choose what to do")
         print("---")
         print("1. Go fight!")
-        print("2. Check your stats")
+        print("2. Check your stats       | HP: {}/{} | Power: {}".format(p.hp, p.max_hp, p.pw))
         if p.sp > 0:
             print("3. Upgrade your character | Skill Points: {}".format(p.sp))
         else:
@@ -24,7 +26,7 @@ def mainmenu(p):
             print("4. Open shop              | Money: {}".format(p.money))
         else:
             print("4. <CLOSED>")
-        print("5. Close the game")
+        print("5. Close the game         | Last save: {}".format(time.ctime(lastsave)))
         n = input("Number: ")
         if n == "1":
             menu_fight(p)
