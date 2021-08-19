@@ -2,7 +2,6 @@ from configparser import ConfigParser
 from extensions import cmdClear
 import os
 config = ConfigParser()
-path = "saves.ini"
 
 def cfgcreate(path):
     if not os.path.exists(path):

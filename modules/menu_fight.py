@@ -16,26 +16,26 @@ def menu_fight(p):
         enemy = choice(enemies.enemyspawn)
 
         if enemy in enemies.enemyspawnregular:
-            ehp = randint(10,20) + ceil(p.max_hp * 0.25)
+            ehp = randint(10,20) + ceil(p.max_hp * 0.33)
             epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
         elif enemy in enemies.enemyspawnnormal:
-            ehp = randint(30,50) + ceil(p.max_hp * 0.25)
+            ehp = randint(30,50) + ceil(p.max_hp * 0.33)
             epw = 2 * randint(3,7) + ceil(p.pw * 0.25)
         elif enemy in enemies.enemyspawnboss:
-            ehp = randint(75,100) + ceil(p.max_hp * 0.25)
+            ehp = randint(75,100) + ceil(p.max_hp * 0.33)
             epw = 2 * randint(5,10) + ceil(p.pw * 0.25)
     elif p.location == "sands":
         enemy = choice(enemies.enemysands)
 
         if enemy in enemies.enemysandsregular:
-            ehp = randint(10,20) + ceil(p.max_hp * 0.25)
-            epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
+            ehp = randint(30,50) + ceil(p.max_hp * 0.5)
+            epw = 2 * randint(2,10) + ceil(p.pw * 0.5)
         elif enemy in enemies.enemysandsnormal:
-            ehp = randint(30,50) + ceil(p.max_hp * 0.25)
-            epw = 2 * randint(3,7) + ceil(p.pw * 0.25)
+            ehp = randint(55,95) + ceil(p.max_hp * 0.5)
+            epw = 2 * randint(4,12) + ceil(p.pw * 0.5)
         elif enemy in enemies.enemysandsboss:
-            ehp = randint(75,100) + ceil(p.max_hp * 0.25)
-            epw = 2 * randint(5,10) + ceil(p.pw * 0.25)
+            ehp = randint(100,130) + ceil(p.max_hp * 0.5)
+            epw = 2 * randint(10,20) + ceil(p.pw * 0.5)
 
     enemy = enemy.capitalize()
 
@@ -115,7 +115,11 @@ def menu_fight(p):
     if usedpwpotions != 0:
         p.pw -= usedpwpotions * p.plus_pw
     rpcupdate(p)
-    p.xp += 1
+
+    if p.location == "spawn":
+        p.xp += 1
+    elif p.location == "sands":
+        p.xp += 3
     p.sp += 1
     p.money += 1
 
