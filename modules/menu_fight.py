@@ -36,6 +36,18 @@ def menu_fight(p):
         elif enemy in enemies.enemysandsboss:
             ehp = randint(100,130) + ceil(p.max_hp * 0.5)
             epw = 2 * randint(10,20) + ceil(p.pw * 0.5)
+    elif p.location == "snow kingdom":
+        enemy = choice(enemies.enemysnowkingdom)
+
+        if enemy in enemies.enemysnowkingdomregular:
+            ehp = randint(40,60) + ceil(p.max_hp * 0.5)
+            epw = 2 * randint(4,15) + ceil(p.pw * 0.5)
+        elif enemy in enemies.enemysnowkingdomnormal:
+            ehp = randint(70,100) + ceil(p.max_hp * 0.5)
+            epw = 2 * randint(6,20) + ceil(p.pw * 0.5)
+        elif enemy in enemies.enemysnowkingdomboss:
+            ehp = randint(120,150) + ceil(p.max_hp * 0.5)
+            epw = 2 * randint(15,30) + ceil(p.pw * 0.5)
 
     enemy = enemy.capitalize()
 
@@ -120,12 +132,18 @@ def menu_fight(p):
         p.xp += 1
     elif p.location == "sands":
         p.xp += 3
+    elif p.location == "snow kingdom":
+        p.xp += 5
     p.sp += 1
     p.money += 1
 
     r = randint(1, 100)
     if r == 100 and p.sandspass == 0 and p.location == "spawn":
         p.sandspass = 1
+    
+    ch = randint(1, 250)
+    if ch == 250 and p.snowkingdompass == 0 and p.location == "sands":
+        p.snowkingdompass = 1
 
     cfgsave(p, 'saves.ini')
     if p.xp >= p.max_xp:

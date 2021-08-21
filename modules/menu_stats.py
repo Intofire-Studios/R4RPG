@@ -24,6 +24,8 @@ def menu_stats(p):
         print("- Spawn Pass")
     if p.sandspass == 1:
         print("- Sands Pass")
+    if p.snowkingdompass == 1:
+        print("- Snow Kingdom Pass")
     print("---")
     input("Enter to continue.")
     consoleClear()

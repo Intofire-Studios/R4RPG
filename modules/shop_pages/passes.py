@@ -12,10 +12,14 @@ def menu_passes(p):
         print("Choose passes! Money: {}".format(p.money))
         print("---")
         if p.sandspass == 0:
-            print("[COST: 100] 1. Sands pass")
+            print("1. Sands Pass          [COST: 100]")
         else:
-            print("[PURCHASED] 1. Sands pass")
-        print("2. Exit to shop menu")
+            print("1. Sands Pass          [PURCHASED]")
+        if p.snowkingdompass == 0:
+            print("2. Snow Kingdom Pass   [COST: 250]")
+        else:
+            print("2. Snow Kingdom Pass   [PURCHASED]")
+        print("3. Exit to shop menu")
         n = input("Number: ")
         consoleClear()
         if n == "1":
@@ -32,6 +36,19 @@ def menu_passes(p):
                 print("Not enough money.")
                 rpcshopupdate(p)
         if n == "2":
+            if p.money >= 250 and p.snowkingdompass == 0:
+                p.money -= 250
+                p.snowkingdompass = 1
+                rpcshopupdate(p)
+            elif p.snowkingdompass == 1:
+                print("---")
+                print("This travel pass is already purchased.")
+                rpcshopupdate(p)
+            else:
+                print("---")
+                print("Not enough money.")
+                rpcshopupdate(p)
+        if n == "3":
             break
     consoleClear()
     cfgsave(p, 'saves.ini')

@@ -28,3 +28,11 @@ def cfgcheck(path):
             with open(path, "w+") as config_file:
                 config.write(config_file)
             config_file.close()
+
+        try:
+            config.getint("SAVE", "snowkingdompass")
+        except NoOptionError:
+            config.set("SAVE", "snowkingdompass", "0")
+            with open(path, "w+") as config_file:
+                config.write(config_file)
+            config_file.close()

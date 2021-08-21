@@ -45,6 +45,7 @@ def cfgcreate(path):
         config.set("SAVE", "location", "spawn")
         config.set("SAVE", "spawnpass", "1")
         config.set("SAVE", "sandspass", "0")
+        config.set("SAVE", "snowkingdompass", "0")
         with open(path, "w+") as config_file:
             config.write(config_file)
         config_file.close()
