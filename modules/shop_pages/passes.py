@@ -26,28 +26,24 @@ def menu_passes(p):
             if p.money >= 100 and p.sandspass == 0:
                 p.money -= 100
                 p.sandspass = 1
-                rpcshopupdate(p)
             elif p.sandspass == 1:
                 print("---")
                 print("This travel pass is already purchased.")
-                rpcshopupdate(p)
             else:
                 print("---")
                 print("Not enough money.")
-                rpcshopupdate(p)
+            rpcshopupdate(p)
         if n == "2":
             if p.money >= 250 and p.snowkingdompass == 0:
                 p.money -= 250
                 p.snowkingdompass = 1
-                rpcshopupdate(p)
             elif p.snowkingdompass == 1:
                 print("---")
                 print("This travel pass is already purchased.")
-                rpcshopupdate(p)
             else:
                 print("---")
                 print("Not enough money.")
-                rpcshopupdate(p)
+            rpcshopupdate(p)
         if n == "3":
             break
     consoleClear()

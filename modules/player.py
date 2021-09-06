@@ -19,6 +19,5 @@ class Player:
     pwpotion = config.getint("SAVE", "pwpotion")
     hppotion = config.getint("SAVE", "hppotion")
     location = config.get("SAVE", "location")
-    spawnpass = config.getint("SAVE", "spawnpass")
     sandspass = config.getint("SAVE", "sandspass")
     snowkingdompass = config.getint("SAVE", "snowkingdompass")

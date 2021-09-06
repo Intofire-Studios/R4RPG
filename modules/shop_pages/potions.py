@@ -20,11 +20,10 @@ def menu_potions(p):
             if p.money >= 5:
                 p.money -= 5
                 p.pwpotion += 1
-                rpcshopupdate(p)
             else:
                 print("---")
                 print("Not enough money.")
-                rpcshopupdate(p)
+            rpcshopupdate(p)
         if n == "2":
             p.hppotion += 5
             p.money -= 1

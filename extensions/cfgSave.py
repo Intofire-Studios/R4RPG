@@ -22,7 +22,6 @@ def cfgsave(p, path):
     config.set("SAVE", "pwpotion", str(p.pwpotion))
     config.set("SAVE", "hppotion", str(p.hppotion))
     config.set("SAVE", "location", p.location)
-    config.set("SAVE", "spawnpass", str(p.spawnpass))
     config.set("SAVE", "sandspass", str(p.sandspass))
     config.set("SAVE", "snowkingdompass", str(p.snowkingdompass))
     with open(path, "w") as config_file:

@@ -1,6 +1,6 @@
 from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
-from extensions.richPresence import rpcupdate, rpcupgradeupdate
+from extensions.richPresence import rpcupgradeupdate
 
 def menu_upgrade(p):
     while p.sp > 0:

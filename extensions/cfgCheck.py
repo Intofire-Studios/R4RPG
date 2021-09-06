@@ -11,15 +11,7 @@ def cfgcheck(path):
             config.set("SAVE", "location", "spawn")
             with open(path, "w+") as config_file:
                 config.write(config_file)
-            config_file.close()      
-
-        try:
-            config.getint("SAVE", "spawnpass")
-        except NoOptionError:
-            config.set("SAVE", "spawnpass", "1")
-            with open(path, "w+") as config_file:
-                config.write(config_file)
-            config_file.close()         
+            config_file.close()    
 
         try:
             config.getint("SAVE", "sandspass")
