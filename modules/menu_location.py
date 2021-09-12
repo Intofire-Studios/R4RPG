@@ -1,6 +1,7 @@
 from extensions.cfgSave import cfgsave
 from extensions.richPresence import rpclocationupdate
 from extensions.cmdClear import consoleClear
+from extensions.fileAssociation import saves
 
 def menu_location(p):
     while True:
@@ -21,16 +22,16 @@ def menu_location(p):
         n = input("Number: ")
         if n == "1":
             p.location = "spawn"
-            cfgsave(p, 'saves.ini')
+            cfgsave(p, saves)
             rpclocationupdate(p)
             return False
         if n == "2" and p.sandspass == 1:
             p.location = "sands"
-            cfgsave(p, 'saves.ini')
+            cfgsave(p, saves)
             rpclocationupdate(p)
             return False
         if n == "3" and p.snowkingdompass == 1:
             p.location = "snow kingdom"
-            cfgsave(p, 'saves.ini')
+            cfgsave(p, saves)
             rpclocationupdate(p)
             return False

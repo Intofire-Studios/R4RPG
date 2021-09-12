@@ -6,12 +6,13 @@ from modules.menu_stats import menu_stats
 from modules.menu_fight import menu_fight
 from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
+from extensions.fileAssociation import saves
 from modules.menu_shop import menu_shop
 import os.path, time
 
 def mainmenu(p):
     while True:
-        lastsave = os.path.getmtime('saves.ini')
+        lastsave = os.path.getmtime(saves)
         consoleClear()
         rpcupdate(p)
         print("---")
@@ -42,6 +43,6 @@ def mainmenu(p):
             menu_location(p)
         if n == "6":
             print("Closing the game...")
-            cfgsave(p, 'saves.ini')
+            cfgsave(p, saves)
             sleep(3)
             exit()

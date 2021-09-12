@@ -3,12 +3,13 @@ from extensions.cmdClear import consoleClear
 from random import randint, choice
 from modules.menu_upgrade import menu_upgrade
 from extensions.richPresence import rpclose, rpcupdate, rpcfightupdate
+from extensions.fileAssociation import saves
 from modules import enemies
 from time import sleep
 from math import ceil
 
-def menu_fight(p):
-    cfgsave(p, 'saves.ini')
+def menu_fight(p):  # sourcery no-metrics
+    cfgsave(p, saves)
     usedpwpotions = 0
     rpcfightupdate(p)
 
@@ -145,7 +146,7 @@ def menu_fight(p):
     if ch == 250 and p.snowkingdompass == 0 and p.location == "sands":
         p.snowkingdompass = 1
 
-    cfgsave(p, 'saves.ini')
+    cfgsave(p, saves)
     if p.xp >= p.max_xp:
         p.xp = 0
         p.max_xp *= 5

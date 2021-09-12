@@ -1,13 +1,14 @@
 from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcshopupdate
+from extensions.fileAssociation import saves
 
 def menu_potions(p):
-    cfgsave(p, 'saves.ini')
+    cfgsave(p, saves)
     rpcshopupdate(p)
     consoleClear()
     while p.money > 0:
-        cfgsave(p, 'saves.ini')
+        cfgsave(p, saves)
         print("---")
         print("Choose potions! Money: {}".format(p.money))
         print("---")
@@ -31,4 +32,4 @@ def menu_potions(p):
         if n == "3":
             break
     consoleClear()
-    cfgsave(p, 'saves.ini')
+    cfgsave(p, saves)

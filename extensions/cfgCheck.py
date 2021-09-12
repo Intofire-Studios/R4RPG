@@ -3,7 +3,7 @@ import os
 config = ConfigParser()
 
 def cfgcheck(path):
-    config.read("saves.ini")
+    config.read(path)
     if os.path.exists(path):
         try:
             config.get("SAVE", "location")

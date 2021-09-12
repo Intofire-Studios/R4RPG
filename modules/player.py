@@ -1,7 +1,8 @@
 from configparser import ConfigParser
+from extensions.fileAssociation import saves
 
 config = ConfigParser()
-config.read("saves.ini")
+config.read(saves)
 
 class Player:
     name = config.get("SAVE", "name")
