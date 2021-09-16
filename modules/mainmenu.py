@@ -1,3 +1,4 @@
+from modules.menu_mine import menu_mine
 from modules.menu_location import menu_location
 from extensions.richPresence import rpcupdate
 from modules.menu_upgrade import menu_upgrade
@@ -19,6 +20,7 @@ def mainmenu(p):
         print("Choose what to do")
         print("---")
         print("1. Go fight!")
+        #print("2. Go to the mine!")
         print("2. Check your stats       | HP: {}/{} | Power: {}".format(p.hp, p.max_hp, p.pw))
         if p.sp > 0:
             print("3. Upgrade your character | Skill Points: {}".format(p.sp))
@@ -33,6 +35,8 @@ def mainmenu(p):
         n = input("Number: ")
         if n == "1":
             menu_fight(p)
+        #if n == "2":
+        #    menu_mine(p)
         if n == "2":
             menu_stats(p)
         if n == "3":

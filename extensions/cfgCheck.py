@@ -1,4 +1,4 @@
-from configparser import ConfigParser, NoOptionError
+from configparser import ConfigParser, NoOptionError, NoSectionError
 import os
 config = ConfigParser()
 
@@ -25,6 +25,22 @@ def cfgcheck(path):
             config.getint("SAVE", "snowkingdompass")
         except NoOptionError:
             config.set("SAVE", "snowkingdompass", "0")
+            with open(path, "w+") as config_file:
+                config.write(config_file)
+            config_file.close()
+        
+        try:
+            config.getint("INVENTORY", "stone")
+        except NoSectionError:
+            config.add_section("INVENTORY")
+            with open(path, "w+") as config_file:
+                config.write(config_file)
+            config_file.close()
+
+        try:
+            config.getint("INVENTORY", "stone")
+        except NoOptionError:
+            config.set("INVENTORY", "stone", "0")
             with open(path, "w+") as config_file:
                 config.write(config_file)
             config_file.close()

@@ -22,3 +22,5 @@ class Player:
     location = config.get("SAVE", "location")
     sandspass = config.getint("SAVE", "sandspass")
     snowkingdompass = config.getint("SAVE", "snowkingdompass")
+
+    stone = config.getint("INVENTORY", "stone")
