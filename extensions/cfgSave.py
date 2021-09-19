@@ -1,9 +1,6 @@
 from configparser import ConfigParser
-from modules import player
 
 config = ConfigParser()
-
-p = player.Player()
 
 def cfgsave(p, path):
     config.read(path)

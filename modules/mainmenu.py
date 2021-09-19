@@ -1,3 +1,4 @@
+from modules.menu_inventory import menu_inventory
 from modules.menu_mine import menu_mine
 from modules.menu_location import menu_location
 from extensions.richPresence import rpcupdate
@@ -27,6 +28,9 @@ def mainmenu(p):
             print("2. <CLOSED>")
         '''
         print("2. Check your stats       | HP: {}/{} | Power: {}".format(p.hp, p.max_hp, p.pw))
+        '''
+        print("4. Check your inventory")
+        '''
         if p.sp > 0:
             print("3. Upgrade your character | Skill Points: {}".format(p.sp))
         else:
@@ -44,6 +48,8 @@ def mainmenu(p):
         #    menu_mine(p)
         if n == "2":
             menu_stats(p)
+        #if n == "4":
+        #    menu_inventory(p)
         if n == "3":
             menu_upgrade(p)
         if n == "4":
