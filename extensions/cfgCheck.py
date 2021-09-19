@@ -30,9 +30,25 @@ def cfgcheck(path):
             config_file.close()
         
         try:
-            config.getint("INVENTORY", "stone")
+            config.getint("INVENTORY", "pickaxe")
         except NoSectionError:
             config.add_section("INVENTORY")
+            with open(path, "w+") as config_file:
+                config.write(config_file)
+            config_file.close()
+
+        try:
+            config.getint("INVENTORY", "pickaxe")
+        except NoOptionError:
+            config.set("INVENTORY", "pickaxe", "0")
+            with open(path, "w+") as config_file:
+                config.write(config_file)
+            config_file.close()
+
+        try:
+            config.getint("INVENTORY", "max_pickaxe")
+        except NoOptionError:
+            config.set("INVENTORY", "max_pickaxe", "0")
             with open(path, "w+") as config_file:
                 config.write(config_file)
             config_file.close()

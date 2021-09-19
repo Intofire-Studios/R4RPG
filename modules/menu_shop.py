@@ -1,3 +1,4 @@
+from modules.shop_pages.pickaxes import menu_pickaxes
 from modules.shop_pages.passes import menu_passes
 from modules.shop_pages.potions import menu_potions
 from extensions.cfgSave import cfgsave
@@ -16,6 +17,7 @@ def menu_shop(p):
         print("---")
         print("1. Potions")
         print("2. Travel passes")
+        #print("3. Pickaxes")
         print("3. Exit to main menu")
         n = input("Number: ")
         consoleClear()
@@ -23,6 +25,10 @@ def menu_shop(p):
             menu_potions(p)
         if n == "2":
             menu_passes(p)
+        '''
+        if n == "3":
+            menu_pickaxes(p)
+        '''
         if n == "3":
             break
     consoleClear()

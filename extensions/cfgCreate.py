@@ -47,6 +47,8 @@ def cfgcreate(path):
     config.set("SAVE", "sandspass", "0")
     config.set("SAVE", "snowkingdompass", "0")
     config.add_section("INVENTORY")
+    config.set("INVENTORY", "pickaxe", "0")
+    config.set("INVENTORY", "max_pickaxe", "0")
     config.set("INVENTORY", "stone", "0")
     with open(path, "w+") as config_file:
         config.write(config_file)

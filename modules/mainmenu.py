@@ -20,7 +20,12 @@ def mainmenu(p):
         print("Choose what to do")
         print("---")
         print("1. Go fight!")
-        #print("2. Go to the mine!")
+        '''
+        if p.max_pickaxe != 0:
+            print("2. Go to the mine!        | Pickaxe: {}/{}".format(p.pickaxe, p.max_pickaxe))
+        else:
+            print("2. <CLOSED>")
+        '''
         print("2. Check your stats       | HP: {}/{} | Power: {}".format(p.hp, p.max_hp, p.pw))
         if p.sp > 0:
             print("3. Upgrade your character | Skill Points: {}".format(p.sp))

@@ -23,4 +23,6 @@ class Player:
     sandspass = config.getint("SAVE", "sandspass")
     snowkingdompass = config.getint("SAVE", "snowkingdompass")
 
+    pickaxe = config.getint("INVENTORY", "pickaxe")
+    max_pickaxe = config.getint("INVENTORY", "max_pickaxe")
     stone = config.getint("INVENTORY", "stone")
