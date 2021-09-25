@@ -100,12 +100,24 @@ def rpclocationupdate(p):
 
 def rpcmineupdate(p):
     try:
-        pass
+        if p.location == "spawn":
+            location = "spawn"
+        elif p.location == "sands":
+            location = "sands"
+        elif p.location == "snow kingdom":
+            location = "snowkingdom"
+        RPC.update(large_image="menu_mine", large_text="Digging something in the mine...", small_image=location, small_text="Location: {}".format(p.location).capitalize(), details="Digging something in the mine...", state="Pickaxe: {}/{}".format(p.pickaxe, p.max_pickaxe), buttons=[{"label": "Website", "url": "https://github.com/Rarmash/R4RPG"}])
     except (AssertionError, exceptions.InvalidPipe):
         pass
 
 def rpcinventoryupdate(p):
     try:
-        pass
+        if p.location == "spawn":
+            location = "spawn"
+        elif p.location == "sands":
+            location = "sands"
+        elif p.location == "snow kingdom":
+            location = "snowkingdom"
+        RPC.update(large_image="menu_inventory", large_text="Checking inventory...", small_image=location, small_text="Location: {}".format(p.location).capitalize(), details="Checking inventory...", state="Pickaxe: {}/{}".format(p.pickaxe, p.max_pickaxe), buttons=[{"label": "Website", "url": "https://github.com/Rarmash/R4RPG"}])
     except (AssertionError, exceptions.InvalidPipe):
         pass

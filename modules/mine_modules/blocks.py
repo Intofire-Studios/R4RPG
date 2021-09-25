@@ -1,1 +1,1 @@
-blocks = ['stone']
+blocks = ['stone', 'copper', 'tin', 'iron', 'aluminum', 'silver', 'topaz', 'gold', 'crystal', 'diamond', 'ruby', 'emerald']

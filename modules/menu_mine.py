@@ -1,16 +1,16 @@
 from random import choice
-from time import time
+from time import sleep
 from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
-from extensions.richPresence import rpcupgradeupdate
+from extensions.richPresence import rpcmineupdate
 from extensions.fileAssociation import saves
 from modules.mine_modules import blocks, blockcheck, blocktoinventory
 
 def menu_mine(p):
-    rpcupgradeupdate(p)
-    block = choice(blocks.blocks)
-    blockstrength = blockcheck.blockcheck(block)
     while p.pickaxe > 0:
+        block = choice(blocks.blocks)
+        blockstrength = blockcheck.blockcheck(block)
+        rpcmineupdate(p)
         cfgsave(p, saves)
         consoleClear()
         print("---")
@@ -26,8 +26,10 @@ def menu_mine(p):
                 blocktoinventory.blocktoinventory(p, block)
                 cfgsave(p, saves)
             else:
-                print("Your pickaxe is not good enough to mine this block...")
-                time.sleep(3)
+                consoleClear()
+                print("Your pickaxe is not good enough to mine this block... After trying to get the block, it broke down.")
+                p.pickaxe = 0
+                sleep(3)
                 break
         if n == "2":
             break

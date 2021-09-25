@@ -17,17 +17,17 @@ def menu_shop(p):
         print("---")
         print("1. Potions")
         print("2. Travel passes")
-        #print("3. Pickaxes")
-        print("3. Exit to main menu")
+        print("3. Pickaxes")
+        print("4. Exit to main menu")
         n = input("Number: ")
         consoleClear()
         if n == "1":
             menu_potions(p)
         if n == "2":
             menu_passes(p)
-        #if n == "3":
-        #    menu_pickaxes(p) 
         if n == "3":
+            menu_pickaxes(p) 
+        if n == "4":
             break
     consoleClear()
     cfgsave(p, saves)
