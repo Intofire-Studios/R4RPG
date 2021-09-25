@@ -25,10 +25,8 @@ def menu_shop(p):
             menu_potions(p)
         if n == "2":
             menu_passes(p)
-        '''
-        if n == "3":
-            menu_pickaxes(p)
-        '''
+        #if n == "3":
+        #    menu_pickaxes(p) 
         if n == "3":
             break
     consoleClear()

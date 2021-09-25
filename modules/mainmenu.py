@@ -3,7 +3,6 @@ from modules.menu_mine import menu_mine
 from modules.menu_location import menu_location
 from extensions.richPresence import rpcupdate
 from modules.menu_upgrade import menu_upgrade
-from time import sleep
 from modules.menu_stats import menu_stats
 from modules.menu_fight import menu_fight
 from extensions.cfgSave import cfgsave
@@ -59,5 +58,5 @@ def mainmenu(p):
         if n == "6":
             print("Closing the game...")
             cfgsave(p, saves)
-            sleep(3)
+            time.sleep(3)
             exit()

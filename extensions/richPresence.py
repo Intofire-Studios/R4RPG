@@ -7,13 +7,6 @@ RPC = Presence(client_id=client_id)
 def rpc(p):
     try:
         RPC.connect()
-        if p.location == "spawn":
-            location = "spawn"
-        elif p.location == "sands":
-            location = "sands"
-        elif p.location == "snow kingdom":
-            location = "snowkingdom"
-        RPC.update(large_image="mainmenu", large_text="At main menu", small_image=location, small_text="Location: {}".format(p.location).capitalize(), details="HP: {}/{}".format(p.hp, p.max_hp), state="Power: {}".format(p.pw), buttons=[{"label": "Website", "url": "https://github.com/Rarmash/R4RPG"}])
     except (AssertionError, exceptions.InvalidPipe):
         pass
 
