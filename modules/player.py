@@ -1,7 +1,8 @@
 from configparser import ConfigParser
+from extensions.fileAssociation import saves
 
 config = ConfigParser()
-config.read("saves.ini")
+config.read(saves)
 
 class Player:
     name = config.get("SAVE", "name")
@@ -21,3 +22,18 @@ class Player:
     location = config.get("SAVE", "location")
     sandspass = config.getint("SAVE", "sandspass")
     snowkingdompass = config.getint("SAVE", "snowkingdompass")
+
+    pickaxe = config.getint("INVENTORY", "pickaxe")
+    max_pickaxe = config.getint("INVENTORY", "max_pickaxe")
+    stone = config.getint("INVENTORY", "stone")
+    copper = config.getint("INVENTORY", "copper")
+    tin = config.getint("INVENTORY", "tin")
+    iron = config.getint("INVENTORY", "iron")
+    aluminum = config.getint("INVENTORY", "aluminum")
+    gold = config.getint("INVENTORY", "gold")
+    crystal = config.getint("INVENTORY", "crystal")
+    diamond = config.getint("INVENTORY", "diamond")
+    emerald = config.getint("INVENTORY", "emerald")
+    topaz = config.getint("INVENTORY", "topaz")
+    ruby = config.getint("INVENTORY", "ruby")
+    silver = config.getint("INVENTORY", "silver")

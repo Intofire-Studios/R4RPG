@@ -1,9 +1,6 @@
 from configparser import ConfigParser
-from modules import player
 
 config = ConfigParser()
-
-p = player.Player()
 
 def cfgsave(p, path):
     config.read(path)
@@ -24,6 +21,20 @@ def cfgsave(p, path):
     config.set("SAVE", "location", p.location)
     config.set("SAVE", "sandspass", str(p.sandspass))
     config.set("SAVE", "snowkingdompass", str(p.snowkingdompass))
+    config.set("INVENTORY", "pickaxe", str(p.pickaxe))
+    config.set("INVENTORY", "max_pickaxe", str(p.max_pickaxe))
+    config.set("INVENTORY", "stone", str(p.stone))
+    config.set("INVENTORY", "copper", str(p.copper))
+    config.set("INVENTORY", "tin", str(p.tin))
+    config.set("INVENTORY", "iron", str(p.iron))
+    config.set("INVENTORY", "aluminum", str(p.aluminum))
+    config.set("INVENTORY", "silver", str(p.silver))
+    config.set("INVENTORY", "topaz", str(p.topaz))
+    config.set("INVENTORY", "gold", str(p.gold))
+    config.set("INVENTORY", "crystal", str(p.crystal))
+    config.set("INVENTORY", "diamond", str(p.diamond))
+    config.set("INVENTORY", "emerald", str(p.ruby))
+    config.set("INVENTORY", "emerald", str(p.emerald))
     with open(path, "w") as config_file:
         config.write(config_file)
     config_file.close()

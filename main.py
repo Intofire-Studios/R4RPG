@@ -1,7 +1,7 @@
-from extensions import cfgCreate, richPresence, cfgCheck
+from extensions import cfgCreate, richPresence, cfgCheck, fileAssociation
 
-cfgCreate.cfgcreate('saves.ini')
-cfgCheck.cfgcheck('saves.ini')
+cfgCreate.cfgcreate(fileAssociation.saves)
+cfgCheck.cfgcheck(fileAssociation.saves)
 
 from modules import mainmenu, player
 

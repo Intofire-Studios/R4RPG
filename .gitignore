@@ -2,3 +2,4 @@ modules/__pycache__/*
 extensions/__pycache__/*
 saves.ini
 modules/shop_pages/__pycache__/*
+modules/mine_modules/__pycache__/*
