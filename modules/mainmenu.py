@@ -8,6 +8,7 @@ from modules.menu_fight import menu_fight
 from extensions.cfgSave import cfgsave
 from extensions.cmdClear import consoleClear
 from extensions.fileAssociation import saves
+from extensions.versionChecker import versionChecher
 from modules.menu_shop import menu_shop
 import os.path, time
 
@@ -16,6 +17,9 @@ def mainmenu(p):
         lastsave = os.path.getmtime(saves)
         consoleClear()
         rpcupdate(p)
+        if versionChecher() == 0:
+            print("---")
+            print('New version is available!', 'Download here — https://github.com/Intofire-Studios/R4RPG/releases')
         print("---")
         print("Choose what to do!")
         print("---")
