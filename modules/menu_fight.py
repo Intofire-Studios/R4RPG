@@ -114,11 +114,13 @@ def menu_fight(p):  # sourcery no-metrics
                 print("---")
                 print("Not enough potions!")
         if n == "4":
-            r = randint(1,3)
-            if r == "3":
+            r = randint(1,4)
+            if r == 3:
                 consoleClear()
                 print("---")
                 print("You ran away!")
+                print("---")
+                sleep(3)
                 return True
             else:
                 consoleClear()

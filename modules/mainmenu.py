@@ -11,6 +11,7 @@ from extensions.fileAssociation import saves
 from extensions.versionChecker import versionChecher
 from modules.menu_shop import menu_shop
 import os.path, time
+import requests
 
 def mainmenu(p):
     while True:
@@ -20,6 +21,11 @@ def mainmenu(p):
         if versionChecher() == 0:
             print("---")
             print('New version is available!', 'Download here — https://github.com/Intofire-Studios/R4RPG/releases')
+            print('')
+            info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/R4RPG/master/extensions/version.txt')
+            with open('extensions/version.txt', 'r') as f:
+                print('Current version: {}'.format(f.read()[9:-1]))
+            print('New version: {}'.format(str(info.content)[11:-3]))
         print("---")
         print("Choose what to do!")
         print("---")
