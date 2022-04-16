@@ -1,6 +1,7 @@
 from extensions import richPresence, fileAssociation
-from extensions import saveCreate, saveCheck
+from extensions import saveCreate, saveCheck, savePort
 
+savePort.savePort(fileAssociation.saves)
 saveCreate.saveCreate(fileAssociation.saves)
 saveCheck.saveCheck(fileAssociation.saves)
 
