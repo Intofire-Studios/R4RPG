@@ -1,20 +1,20 @@
-from extensions.cfgSave import cfgsave
+from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcupgradeupdate
 from extensions.fileAssociation import saves
 
 def menu_upgrade(p):
     while p.sp > 0:
-        cfgsave(p, saves)
+        saveProcess(p, saves)
         rpcupgradeupdate(p)
         consoleClear()
         print("---")
-        print("Choose your upgrades! Skill points: {}".format(p.sp))
+        print(f"Choose your upgrades! Skill points: {p.sp}")
         print("---")
-        print("1. HP: {}/{}".format(p.hp, p.max_hp))
-        print("2. Power: {}".format(p.pw))
-        print("3. Heal potions power: {}".format(p.heal_hp))
-        print("4. Power potions power: {}".format(p.plus_pw))
+        print(f"1. HP: {p.hp}/{p.max_hp}")
+        print(f"2. Power: {p.pw}")
+        print(f"3. Heal potions power: {p.heal_hp}")
+        print(f"4. Power potions power: {p.plus_pw}")
         print("5. Exit to main menu")
         n = input("Number: ")
         if n == "1":
@@ -38,4 +38,4 @@ def menu_upgrade(p):
             break
         consoleClear()
     consoleClear()
-    cfgsave(p, saves)
+    saveProcess(p, saves)

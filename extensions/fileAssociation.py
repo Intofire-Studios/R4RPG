@@ -1,1 +1,1 @@
-saves = 'saves.ini'
+saves = 'saves.sqlite'
