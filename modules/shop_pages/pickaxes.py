@@ -1,14 +1,14 @@
-from extensions.cfgSave import cfgsave
+from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcshopupdate
 from extensions.fileAssociation import saves
 
 def menu_pickaxes(p):
-    cfgsave(p, saves)
+    saveProcess(p, saves)
     rpcshopupdate(p)
     consoleClear()
     while p.money > 0:
-        cfgsave(p, saves)
+        saveProcess(p, saves)
         print("---")
         print("Choose your next pickaxe! Money: {}".format(p.money))
         print("---")
@@ -83,4 +83,4 @@ def menu_pickaxes(p):
             break
         rpcshopupdate(p)
     consoleClear()
-    cfgsave(p, saves)
+    saveProcess(p, saves)

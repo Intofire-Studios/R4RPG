@@ -1,4 +1,4 @@
-from extensions.cfgSave import cfgsave
+from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from random import randint, choice
 from modules.menu_upgrade import menu_upgrade
@@ -9,7 +9,7 @@ from time import sleep
 from math import ceil
 
 def menu_fight(p):  # sourcery no-metrics
-    cfgsave(p, saves)
+    saveProcess(p, saves)
     usedpwpotions = 0
     rpcfightupdate(p)
 
@@ -55,12 +55,12 @@ def menu_fight(p):  # sourcery no-metrics
     consoleClear()
     while ehp > 0:
         print("---")
-        print("{}: {}. Power: {}".format(enemy, ehp, epw))
-        print("{}: {}/{}. Power: {}".format(p.name, p.hp,p.max_hp, p.pw))
+        print(f"{enemy}: {ehp}. Power: {epw}")
+        print(f"{p.name}: {p.hp}/{p.max_hp}. Power: {p.pw}")
         print("---")
-        print("1. Punch with power {}".format(p.pw))
-        print("2. Use heal potion (+{}) ({} left)".format(p.heal_hp, p.hppotion))
-        print("3. Use power potion (+{}) ({} left)".format(p.plus_pw, p.pwpotion))
+        print(f"1. Punch with power {p.pw}")
+        print(f"2. Use heal potion (+{p.heal_hp}) ({p.hppotion} left)")
+        print(f"3. Use power potion (+{p.plus_pw}) ({p.pwpotion} left)")
         print("4. Run away!")
         n = input("Number: ")
         if n == "1":
@@ -95,7 +95,7 @@ def menu_fight(p):  # sourcery no-metrics
                     p.hp = p.max_hp
                 consoleClear()
                 print("---")
-                print("Healing... {}".format(p.hp))
+                print(f"Healing... {p.hp}")
                 rpcfightupdate(p)
             else:
                 print("---")
@@ -108,7 +108,7 @@ def menu_fight(p):  # sourcery no-metrics
                 p.pwpotion -= 1
                 p.pw += p.plus_pw
                 print("---")
-                print("Drinking the potion... {}".format(p.pw))
+                print(f"Drinking the potion... {p.pw}")
                 rpcfightupdate(p)
             else:
                 print("---")
@@ -131,24 +131,23 @@ def menu_fight(p):  # sourcery no-metrics
         p.pw -= usedpwpotions * p.plus_pw
     rpcupdate(p)
 
-    if p.location == "spawn":
-        p.xp += 1
-    elif p.location == "sands":
+    if p.location == "sands":
         p.xp += 3
     elif p.location == "snow kingdom":
         p.xp += 5
+    elif p.location == "spawn":
+        p.xp += 1
     p.sp += 1
     p.money += 1
 
     r = randint(1, 100)
     if r == 100 and p.sandspass == 0 and p.location == "spawn":
         p.sandspass = 1
-    
+
     ch = randint(1, 250)
     if ch == 250 and p.snowkingdompass == 0 and p.location == "sands":
         p.snowkingdompass = 1
 
-    cfgsave(p, saves)
     if p.xp >= p.max_xp:
         p.xp = 0
         p.max_xp *= 5

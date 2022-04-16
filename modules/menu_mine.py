@@ -1,6 +1,6 @@
 from random import choice
 from time import sleep
-from extensions.cfgSave import cfgsave
+from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcmineupdate
 from extensions.fileAssociation import saves
@@ -11,11 +11,11 @@ def menu_mine(p):
         block = choice(blocks.blocks)
         blockstrength = blockcheck.blockcheck(block)
         rpcmineupdate(p)
-        cfgsave(p, saves)
+        saveProcess(p, saves)
         consoleClear()
         print("---")
-        print("{}'s pickaxe: {}/{}.".format(p.name, p.pickaxe,p.max_pickaxe))
-        print("Block: {}. Block strength: {}".format(block, blockstrength))
+        print(f"{p.name}'s pickaxe: {p.pickaxe}/{p.max_pickaxe}.")
+        print(f"Block: {block}. Block strength: {blockstrength}")
         print("---")
         print("1. Mine the block")
         print("2. Exit to main menu")
@@ -24,7 +24,7 @@ def menu_mine(p):
             if p.pickaxe >= blockstrength:
                 p.pickaxe -= blockstrength
                 blocktoinventory.blocktoinventory(p, block)
-                cfgsave(p, saves)
+                saveProcess(p, saves)
             else:
                 consoleClear()
                 print("Your pickaxe is not good enough to mine this block... After trying to get the block, it broke down.")
