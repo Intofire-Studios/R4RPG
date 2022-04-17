@@ -2,6 +2,8 @@ import sqlite3
 from sqlite3 import Error
 import os
 from extensions.cmdClear import consoleClear
+import subprocess
+from sys import platform
 
 def create_connection(path):
     connection = None
@@ -22,11 +24,13 @@ def execute_query(connection, query):
 def saveCreate(pathsave, path):
     
     consoleClear()
-    
+
     if os.path.exists(path):
         return
-    newsave = open("saves.sqlite", "w+")
+    newsave = open(path, "w+")
     newsave.close()
+    if platform == "win32":
+        subprocess.call(['attrib', '+h', path])
     connection = create_connection(path)
 
     create_save_table = """
@@ -124,10 +128,7 @@ def saveCreate(pathsave, path):
     connection.commit()
     connection.close()
     realtime = os.path.getmtime(path)
-    if not os.path.exists(pathsave):
-        with open(pathsave, "w+") as newsave:
-            newsave.write(str(realtime))
-    else:
+    if os.path.exists(pathsave):
         os.remove(pathsave)
-        with open(pathsave, "w+") as newsave:
-            newsave.write(str(realtime))
+    with open(pathsave, "w+") as newsave:
+        newsave.write(str(realtime))

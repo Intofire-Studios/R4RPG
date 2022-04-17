@@ -5,4 +5,4 @@ saves.sqlite
 saves.sqlite-journal
 modules/shop_pages/__pycache__/*
 modules/mine_modules/__pycache__/*
-lastsave.txt
+extensions/lastsave.txt
