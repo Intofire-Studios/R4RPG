@@ -1,9 +1,9 @@
-from extensions import richPresence, fileAssociation
-from extensions import saveCreate, saveCheck, savePort
+from extensions import richPresence, fileAssociation, saveCreate, saveCheck, savePort, saveCheatCheck
 
-savePort.savePort(fileAssociation.saves)
-saveCreate.saveCreate(fileAssociation.saves)
-saveCheck.saveCheck(fileAssociation.saves)
+saveCheatCheck.saveCheatCheck(fileAssociation.lastsavepath, fileAssociation.saves)
+savePort.savePort(fileAssociation.lastsavepath, fileAssociation.saves)
+saveCreate.saveCreate(fileAssociation.lastsavepath, fileAssociation.saves)
+saveCheck.saveCheck(fileAssociation.lastsavepath, fileAssociation.saves)
 
 from modules import mainmenu, player
 

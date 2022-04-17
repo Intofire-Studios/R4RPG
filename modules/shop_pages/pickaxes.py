@@ -1,14 +1,14 @@
 from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcshopupdate
-from extensions.fileAssociation import saves
+from extensions.fileAssociation import saves, lastsavepath
 
 def menu_pickaxes(p):
-    saveProcess(p, saves)
+    saveProcess(p, saves, lastsavepath)
     rpcshopupdate(p)
     consoleClear()
     while p.money > 0:
-        saveProcess(p, saves)
+        saveProcess(p, saves, lastsavepath)
         print("---")
         print("Choose your next pickaxe! Money: {}".format(p.money))
         print("---")
@@ -83,4 +83,4 @@ def menu_pickaxes(p):
             break
         rpcshopupdate(p)
     consoleClear()
-    saveProcess(p, saves)
+    saveProcess(p, saves, lastsavepath)

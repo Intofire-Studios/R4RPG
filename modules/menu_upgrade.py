@@ -1,11 +1,11 @@
 from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcupgradeupdate
-from extensions.fileAssociation import saves
+from extensions.fileAssociation import saves, lastsavepath
 
 def menu_upgrade(p):
     while p.sp > 0:
-        saveProcess(p, saves)
+        saveProcess(p, saves, lastsavepath)
         rpcupgradeupdate(p)
         consoleClear()
         print("---")
@@ -38,4 +38,4 @@ def menu_upgrade(p):
             break
         consoleClear()
     consoleClear()
-    saveProcess(p, saves)
+    saveProcess(p, saves, lastsavepath)

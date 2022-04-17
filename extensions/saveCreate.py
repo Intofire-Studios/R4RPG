@@ -1,6 +1,7 @@
 import sqlite3
 from sqlite3 import Error
 import os
+from extensions.cmdClear import consoleClear
 
 def create_connection(path):
     connection = None
@@ -18,7 +19,10 @@ def execute_query(connection, query):
         connection.commit()
     except Error as e:
         print(f"The error '{e}' occurred")
-def saveCreate(path):
+def saveCreate(pathsave, path):
+    
+    consoleClear()
+    
     if os.path.exists(path):
         return
     newsave = open("saves.sqlite", "w+")
@@ -119,3 +123,11 @@ def saveCreate(path):
     execute_query(connection, create_inventory)
     connection.commit()
     connection.close()
+    realtime = os.path.getmtime(path)
+    if not os.path.exists(pathsave):
+        with open(pathsave, "w+") as newsave:
+            newsave.write(str(realtime))
+    else:
+        os.remove(pathsave)
+        with open(pathsave, "w+") as newsave:
+            newsave.write(str(realtime))

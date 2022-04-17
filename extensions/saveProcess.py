@@ -1,6 +1,7 @@
 import sqlite3
+import os
 
-def saveProcess(p, path):
+def saveProcess(p, path, pathsave):
     connection = sqlite3.connect(path)
     cursor = connection.cursor()
     cursor.execute("""
@@ -31,3 +32,12 @@ def saveProcess(p, path):
     connection.execute(create_inventory, data1)
     connection.commit()
     connection.close()
+
+    realtime = os.path.getmtime(path)
+    if not os.path.exists(pathsave):
+        with open(pathsave, "w+") as newsave:
+            newsave.write(str(realtime))
+    else:
+        os.remove(pathsave)
+        with open(pathsave, "w+") as newsave:
+            newsave.write(str(realtime))

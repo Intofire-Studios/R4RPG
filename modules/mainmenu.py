@@ -7,7 +7,7 @@ from modules.menu_stats import menu_stats
 from modules.menu_fight import menu_fight
 from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
-from extensions.fileAssociation import saves
+from extensions.fileAssociation import saves, lastsavepath
 from extensions.versionChecker import versionChecher
 from modules.menu_shop import menu_shop
 import os.path, time
@@ -15,7 +15,7 @@ import requests
 
 def mainmenu(p):
     while True:
-        saveProcess(p, saves)
+        saveProcess(p, saves, lastsavepath)
         lastsave = os.path.getmtime(saves)
         consoleClear()
         rpcupdate(p)
@@ -69,6 +69,6 @@ def mainmenu(p):
         if n == "8":
             consoleClear()
             print("Closing the game...")
-            saveProcess(p, saves)
+            saveProcess(p, saves, lastsavepath)
             time.sleep(3)
             exit()

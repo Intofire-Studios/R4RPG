@@ -4,3 +4,4 @@ saves.ini
 saves.sqlite
 modules/shop_pages/__pycache__/*
 modules/mine_modules/__pycache__/*
+lastsave.txt
