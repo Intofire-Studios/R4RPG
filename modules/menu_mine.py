@@ -3,7 +3,7 @@ from time import sleep
 from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcmineupdate
-from extensions.fileAssociation import saves
+from extensions.fileAssociation import saves, lastsavepath
 from modules.mine_modules import blocks, blockcheck, blocktoinventory
 
 def menu_mine(p):
@@ -11,7 +11,7 @@ def menu_mine(p):
         block = choice(blocks.blocks)
         blockstrength = blockcheck.blockcheck(block)
         rpcmineupdate(p)
-        saveProcess(p, saves)
+        saveProcess(p, saves, lastsavepath)
         consoleClear()
         print("---")
         print(f"{p.name}'s pickaxe: {p.pickaxe}/{p.max_pickaxe}.")
@@ -24,7 +24,7 @@ def menu_mine(p):
             if p.pickaxe >= blockstrength:
                 p.pickaxe -= blockstrength
                 blocktoinventory.blocktoinventory(p, block)
-                saveProcess(p, saves)
+                saveProcess(p, saves, lastsavepath)
             else:
                 consoleClear()
                 print("Your pickaxe is not good enough to mine this block... After trying to get the block, it broke down.")

@@ -1,8 +1,9 @@
 import sqlite3
 from sqlite3 import OperationalError
 from extensions.saveCreate import execute_query
+import os
         
-def saveCheck(path):
+def saveCheck(pathsave, path):
     sqlite_connection = sqlite3.connect(path)
     cursor = sqlite_connection.cursor()
     
@@ -272,3 +273,12 @@ def saveCheck(path):
         
     sqlite_connection.commit()
     sqlite_connection.close()
+    
+    realtime = os.path.getmtime(path)
+    if not os.path.exists(pathsave):
+        with open(pathsave, "w+") as newsave:
+            newsave.write(str(realtime))
+    else:
+        os.remove(pathsave)
+        with open(pathsave, "w+") as newsave:
+            newsave.write(str(realtime))

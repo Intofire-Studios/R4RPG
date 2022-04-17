@@ -2,7 +2,6 @@ import sqlite3
 
 connection = sqlite3.connect('saves.sqlite')
 cursor = connection.cursor()
-cursor.execute("SELECT * FROM save;")
 class Player:
     cursor.execute("SELECT * FROM save;")
     name = cursor.fetchone()[1]

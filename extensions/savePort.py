@@ -3,7 +3,7 @@ from configparser import ConfigParser
 from extensions import saveCreate
 import os
 
-def savePort(path):
+def savePort(pathsave, path):
     oldpath = 'saves.ini'
     if os.path.exists(oldpath):
         connection = sqlite3.connect(path)
@@ -113,3 +113,12 @@ def savePort(path):
         connection.close()
 
         os.remove(oldpath)
+        
+        realtime = os.path.getmtime(path)
+        if not os.path.exists(pathsave):
+            with open(pathsave, "w+") as newsave:
+                newsave.write(str(realtime))
+        else:
+            os.remove(pathsave)
+            with open(pathsave, "w+") as newsave:
+                newsave.write(str(realtime))

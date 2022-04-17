@@ -1,7 +1,7 @@
 from extensions.saveProcess import saveProcess
 from extensions.richPresence import rpclocationupdate
 from extensions.cmdClear import consoleClear
-from extensions.fileAssociation import saves
+from extensions.fileAssociation import saves, lastsavepath
 
 def menu_location(p):
     while True:
@@ -22,16 +22,16 @@ def menu_location(p):
         n = input("Number: ")
         if n == "1":
             p.location = "spawn"
-            saveProcess(p, saves)
+            saveProcess(p, saves, lastsavepath)
             rpclocationupdate(p)
             return False
         if n == "2" and p.sandspass == 1:
             p.location = "sands"
-            saveProcess(p, saves)
+            saveProcess(p, saves, lastsavepath)
             rpclocationupdate(p)
             return False
         if n == "3" and p.snowkingdompass == 1:
             p.location = "snow kingdom"
-            saveProcess(p, saves)
+            saveProcess(p, saves, lastsavepath)
             rpclocationupdate(p)
             return False

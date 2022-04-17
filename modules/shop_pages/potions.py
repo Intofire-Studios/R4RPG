@@ -1,14 +1,14 @@
 from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcshopupdate
-from extensions.fileAssociation import saves
+from extensions.fileAssociation import saves, lastsavepath
 
 def menu_potions(p):
-    saveProcess(p, saves)
+    saveProcess(p, saves, lastsavepath)
     rpcshopupdate(p)
     consoleClear()
     while p.money > 0:
-        saveProcess(p, saves)
+        saveProcess(p, saves, lastsavepath)
         print("---")
         print("Choose potions! Money: {}".format(p.money))
         print("---")
@@ -32,4 +32,4 @@ def menu_potions(p):
         if n == "3":
             break
     consoleClear()
-    saveProcess(p, saves)
+    saveProcess(p, saves, lastsavepath)

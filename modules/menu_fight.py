@@ -3,13 +3,13 @@ from extensions.cmdClear import consoleClear
 from random import randint, choice
 from modules.menu_upgrade import menu_upgrade
 from extensions.richPresence import rpclose, rpcupdate, rpcfightupdate
-from extensions.fileAssociation import saves
+from extensions.fileAssociation import saves, lastsavepath
 from modules import enemies
 from time import sleep
 from math import ceil
 
 def menu_fight(p):  # sourcery no-metrics
-    saveProcess(p, saves)
+    saveProcess(p, saves, lastsavepath)
     usedpwpotions = 0
     rpcfightupdate(p)
 
