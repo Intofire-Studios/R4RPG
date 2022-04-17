@@ -71,4 +71,5 @@ def mainmenu(p):
             print("Closing the game...")
             saveProcess(p, saves, lastsavepath)
             time.sleep(3)
+            consoleClear()
             exit()
