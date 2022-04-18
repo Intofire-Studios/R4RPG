@@ -10,7 +10,7 @@ from extensions.cmdClear import consoleClear
 from extensions.fileAssociation import saves, lastsavepath
 from extensions.versionChecker import versionChecher
 from modules.menu_shop import menu_shop
-import os.path, time
+import os, time
 import requests
 
 def mainmenu(p):
@@ -34,6 +34,8 @@ def mainmenu(p):
         print("---")
         print("Choose what to do!")
         print("---")
+        if versionChecher() == 1:
+            print('0. Download the update')
         print("1. Go fight!")
         if p.max_pickaxe != 0:
             print(f"2. Go to the mine!        | Pickaxe: {p.pickaxe}/{p.max_pickaxe}")
@@ -52,6 +54,9 @@ def mainmenu(p):
         print(f"7. Change your location   | Current location: {p.location.capitalize()}")
         print(f"8. Close the game         | Last save: {time.ctime(lastsave)}")
         n = input("Number: ")
+        if n == '0' and versionChecher() == 1:
+            os.system('python updater/updater.py')
+            exit()
         if n == "1":
             menu_fight(p)
         if n == "2":
