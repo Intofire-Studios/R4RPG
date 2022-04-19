@@ -1,5 +1,11 @@
 import requests
-def versionChecher():
+import urllib.request
+import os
+import zipfile
+import shutil
+import time
+
+def versionChecker():
     try:
         info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/R4RPG/master/extensions/version.txt')
         with open('extensions/version.txt', 'r') as f:
@@ -14,3 +20,40 @@ def versionChecher():
             return 0
     except Exception:
         return 0
+
+def updaterChecker():
+    try:
+        info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/R4RPG/master/updater/version.txt')
+        with open('updater/version.txt', 'r') as f:
+            curver = f.read()[9:-1]
+        ver = int(str(info.content)[11:-3].replace('.', ''))
+        curver = int(curver.replace('.', ''))
+        print(ver, curver)
+        if ver > curver:
+            updater()
+    except Exception:
+        return 0
+
+def updater():
+    try:
+        urllib.request.urlretrieve("https://github.com/Intofire-Studios/R4RPG/archive/refs/heads/master.zip", "update.zip")
+        try:
+            os.mkdir('updater/download')
+        except FileExistsError:
+            pass
+        os.replace('update.zip', 'updater/download/update.zip')
+        with zipfile.ZipFile('updater/download/update.zip', 'r') as zip_ref:
+            zip_ref.extractall('updater/download/')
+        os.remove('updater/download/update.zip')
+        for g in os.listdir('updater/download/R4RPG-master'):
+            os.replace(f'updater/download/R4RPG-master/{g}', f'updater/download/{g}')
+        os.remove('updater/updater.py')
+        os.replace('updater/download/updater/updater.py', 'updater/updater.py')
+        os.replace('updater/download/updater/version.txt', 'updater/version.txt')
+        shutil.rmtree('updater/download')
+    except Exception as e:
+        try:
+            shutil.rmtree('updater/download')
+        except Exception:
+            pass
+updaterChecker()

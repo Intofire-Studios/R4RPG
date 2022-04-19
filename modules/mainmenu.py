@@ -8,7 +8,7 @@ from modules.menu_fight import menu_fight
 from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.fileAssociation import saves, lastsavepath
-from extensions.versionChecker import versionChecher
+from extensions.versionChecker import versionChecker, updaterChecker
 from modules.menu_shop import menu_shop
 import os, time
 import requests
@@ -17,9 +17,10 @@ def mainmenu(p):
     while True:
         saveProcess(p, saves, lastsavepath)
         lastsave = os.path.getmtime(saves)
+        updaterChecker()
         consoleClear()
         rpcupdate(p)
-        if versionChecher() == 1:
+        if versionChecker() == 1:
             print("---")
             print('New version is available!', 'Download here — https://github.com/Intofire-Studios/R4RPG/releases')
             print('')
@@ -27,14 +28,14 @@ def mainmenu(p):
             with open('extensions/version.txt', 'r') as f:
                 print(f'Current version: {f.read()[9:-1]}')
             print(f'New version: {str(info.content)[11:-3]}')
-        elif versionChecher() == 2:
+        elif versionChecker() == 2:
             print("---")
             with open('extensions/version.txt', 'r') as f:
                 print(f'v{f.read()[9:-1]} beta.')
         print("---")
         print("Choose what to do!")
         print("---")
-        if versionChecher() == 1:
+        if versionChecker() == 1:
             print('0. Download the update')
         print("1. Go fight!")
         if p.max_pickaxe != 0:
@@ -54,7 +55,7 @@ def mainmenu(p):
         print(f"7. Change your location   | Current location: {p.location.capitalize()}")
         print(f"8. Close the game         | Last save: {time.ctime(lastsave)}")
         n = input("Number: ")
-        if n == '0' and versionChecher() == 1:
+        if n == '0' and versionChecker() == 1:
             os.system('python updater/updater.py')
             exit()
         if n == "1":
