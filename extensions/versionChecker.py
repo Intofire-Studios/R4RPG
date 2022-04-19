@@ -28,7 +28,6 @@ def updaterChecker():
             curver = f.read()[9:-1]
         ver = int(str(info.content)[11:-3].replace('.', ''))
         curver = int(curver.replace('.', ''))
-        print(ver, curver)
         if ver > curver:
             updater()
     except Exception:
