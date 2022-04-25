@@ -1,3 +1,4 @@
+import contextlib
 import requests
 import urllib.request
 import os
@@ -35,12 +36,9 @@ def updaterChecker():
 
 def updater():
     try:
-        urllib.request.urlretrieve("https://github.com/Intofire-Studios/R4RPG/archive/refs/heads/master.zip", "update.zip")
-        try:
+        with contextlib.suppress(FileExistsError):
             os.mkdir('updater/download')
-        except FileExistsError:
-            pass
-        os.replace('update.zip', 'updater/download/update.zip')
+        urllib.request.urlretrieve("https://github.com/Intofire-Studios/R4RPG/archive/refs/heads/master.zip", "updater/download/update.zip")
         with zipfile.ZipFile('updater/download/update.zip', 'r') as zip_ref:
             zip_ref.extractall('updater/download/')
         os.remove('updater/download/update.zip')
@@ -51,8 +49,6 @@ def updater():
         os.replace('updater/download/updater/version.txt', 'updater/version.txt')
         shutil.rmtree('updater/download')
     except Exception as e:
-        try:
+        with contextlib.suppress(Exception):
             shutil.rmtree('updater/download')
-        except Exception:
-            pass
 updaterChecker()

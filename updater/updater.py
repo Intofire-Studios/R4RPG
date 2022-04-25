@@ -1,3 +1,4 @@
+import contextlib
 import urllib.request
 import os
 import zipfile
@@ -6,12 +7,9 @@ import time
 
 os.system("cls||clear")
 try:
-    urllib.request.urlretrieve("https://github.com/Intofire-Studios/R4RPG/archive/refs/heads/master.zip", "update.zip")
-    try:
+    with contextlib.suppress(FileExistsError):
         os.mkdir('updater/download')
-    except FileExistsError:
-        pass
-    os.replace('update.zip', 'updater/download/update.zip')
+    urllib.request.urlretrieve("https://github.com/Intofire-Studios/R4RPG/archive/refs/heads/master.zip", "updater/download/update.zip")
     with zipfile.ZipFile('updater/download/update.zip', 'r') as zip_ref:
         zip_ref.extractall('updater/download/')
     os.remove('updater/download/update.zip')
