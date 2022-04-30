@@ -72,7 +72,12 @@ def saveCreate(pathsave, path):
         crystal INTEGER,
         diamond INTEGER,
         emerald INTEGER,
-        ruby INTEGER
+        ruby INTEGER,
+        sword INTEGER,
+        max_sword INTEGER,
+        damage INTEGER,
+        armor INTEGER,
+        max_armor INTEGER
         );
         """
 
@@ -118,9 +123,9 @@ def saveCreate(pathsave, path):
 
     create_inventory = """
             INSERT INTO
-            inventory (id, pickaxe, max_pickaxe, stone, copper, tin, iron, aluminum, silver, topaz, gold, crystal, diamond, emerald, ruby)
+            inventory (id, pickaxe, max_pickaxe, stone, copper, tin, iron, aluminum, silver, topaz, gold, crystal, diamond, emerald, ruby, sword, max_sword, damage, armor, max_armor)
         VALUES
-            (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+            (1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         """
 
     connection.execute(create_save, data)

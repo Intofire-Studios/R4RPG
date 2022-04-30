@@ -1,7 +1,8 @@
 import os
-import winsound
+#import winsound
 from time import sleep
 from extensions.cmdClear import consoleClear
+import webbrowser
 
 def saveCheatCheck(pathsave, path):
     if os.path.exists(path):
@@ -15,8 +16,11 @@ def saveCheatCheck(pathsave, path):
             consoleClear()
             print("Heh, don't try to modify your saves...")
             sleep(4)
-            os.system("extensions\secret.gif")
-            winsound.PlaySound("extensions/secret.wav", winsound.SND_FILENAME)
+            try:
+                os.system("extensions\secret.gif")
+                #winsound.PlaySound("extensions/secret.wav", winsound.SND_FILENAME)
+            except:
+                webbrowser.open_new_tab('https://youareanidiot.cc')
             os.remove(path)
             exit()
             

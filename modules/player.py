@@ -66,4 +66,14 @@ class Player:
     emerald = cursor.fetchone()[13]
     cursor.execute("SELECT * FROM inventory;")
     ruby = cursor.fetchone()[14]
+    cursor.execute("SELECT * FROM inventory;")
+    sword = cursor.fetchone()[15]
+    cursor.execute("SELECT * FROM inventory;")
+    max_sword = cursor.fetchone()[16]
+    cursor.execute("SELECT * FROM inventory;")
+    damage = cursor.fetchone()[17]
+    cursor.execute("SELECT * FROM inventory;")
+    armor = cursor.fetchone()[18]
+    cursor.execute("SELECT * FROM inventory;")
+    max_armor = cursor.fetchone()[19]
     connection.close()

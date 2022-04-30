@@ -23,11 +23,11 @@ def saveProcess(p, path, pathsave):
     
     create_inventory = """
         INSERT INTO
-        inventory (id, pickaxe, max_pickaxe, stone, copper, tin, iron, aluminum, silver, topaz, gold, crystal, diamond, emerald, ruby)
+        inventory (id, pickaxe, max_pickaxe, stone, copper, tin, iron, aluminum, silver, topaz, gold, crystal, diamond, emerald, ruby, sword, max_sword, damage, armor, max_armor)
     VALUES
-        (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
-    data1 = (p.pickaxe, p.max_pickaxe, p.stone, p.copper, p.tin, p.iron, p.aluminum, p.silver, p.topaz, p.gold, p.crystal, p.diamond, p.emerald, p.ruby)
+    data1 = (p.pickaxe, p.max_pickaxe, p.stone, p.copper, p.tin, p.iron, p.aluminum, p.silver, p.topaz, p.gold, p.crystal, p.diamond, p.emerald, p.ruby, p.sword, p.max_sword, p.damage, p.armor, p.max_armor)
     connection.execute(create_save, data)
     connection.execute(create_inventory, data1)
     connection.commit()
