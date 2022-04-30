@@ -5,10 +5,12 @@ from extensions.richPresence import rpcupdate
 from modules.menu_upgrade import menu_upgrade
 from modules.menu_stats import menu_stats
 from modules.menu_fight import menu_fight
+from modules.menu_craft import menu_craft
 from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.fileAssociation import saves, lastsavepath
 from extensions.versionChecker import versionChecker, updaterChecker
+from extensions.dlala import dlala
 from modules.menu_shop import menu_shop
 import os, time
 import requests
@@ -48,12 +50,13 @@ def mainmenu(p):
             print(f"5. Upgrade your character | Skill Points: {p.sp}")
         else:
             print("5. <CLOSED>")
-        if p.money > 0:
-            print(f"6. Open shop              | Money: {p.money}")
+        print(f"6. Open shop              | Money: {p.money}")
+        if p.stone+p.copper+p.tin+p.iron+p.aluminum+p.gold+p.crystal+p.diamond+p.emerald+p.topaz+p.ruby+p.silver>0:
+            print("7. Open craft menu")
         else:
-            print("6. <CLOSED>")
-        print(f"7. Change your location   | Current location: {p.location.capitalize()}")
-        print(f"8. Close the game         | Last save: {time.ctime(lastsave)}")
+            print("7. <CLOSED>")
+        print(f"8. Change your location   | Current location: {p.location.capitalize()}")
+        print(f"9. Close the game         | Last save: {time.ctime(lastsave)}")
         n = input("Number: ")
         if n == '0' and versionChecker() == 1:
             os.system('python updater/updater.py')
@@ -71,11 +74,15 @@ def mainmenu(p):
         if n == "6":
             menu_shop(p)
         if n == "7":
-            menu_location(p)
+            menu_craft(p)
         if n == "8":
+            menu_location(p)
+        if n == "9":
             consoleClear()
             print("Closing the game...")
             saveProcess(p, saves, lastsavepath)
             time.sleep(3)
             consoleClear()
             exit()
+        #if n.lower() == "dlala":
+        #    dlala(p)

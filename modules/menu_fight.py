@@ -56,9 +56,9 @@ def menu_fight(p):  # sourcery no-metrics
     while ehp > 0:
         print("---")
         print(f"{enemy}: {ehp}. Power: {epw}")
-        print(f"{p.name}: {p.hp}/{p.max_hp}. Power: {p.pw}")
+        print(f"{p.name}: {p.hp}/{p.max_hp}. Power: {p.pw}. Sword: {p.damage} ({p.sword}/{p.max_sword}). Armor: {p.armor}/{p.max_armor}")
         print("---")
-        print(f"1. Punch with power {p.pw}")
+        print(f"1. Punch with power {p.pw+p.sword}")
         print(f"2. Use heal potion (+{p.heal_hp}) ({p.hppotion} left)")
         print(f"3. Use power potion (+{p.plus_pw}) ({p.pwpotion} left)")
         print("4. Run away!")
@@ -66,13 +66,18 @@ def menu_fight(p):  # sourcery no-metrics
         if n == "1":
             r = randint(1,2)
             if r == 1:
-                ehp -= p.pw
+                if p.sword > 0:
+                    ehp -= p.pw+p.damage
+                    p.sword -= 1
+                else:
+                    ehp -= p.pw
                 consoleClear()
                 print("---")
                 print("You hit the enemy!")
                 rpcfightupdate(p)
             if r == 2:
-                p.hp -= epw
+                p.armor -= 1
+                p.hp -= ceil(epw*0.25)
                 consoleClear()
                 print("---")
                 print("Enemy hit you!")

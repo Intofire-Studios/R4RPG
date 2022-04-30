@@ -10,7 +10,7 @@ def menu_pickaxes(p):
     while p.money > 0:
         saveProcess(p, saves, lastsavepath)
         print("---")
-        print("Choose your next pickaxe! Money: {}".format(p.money))
+        print(f"Choose your next pickaxe! Money: {p.money}")
         print("---")
         print("1. Wooden pickaxe    (Toughness: 10)       [COST: 2]")
         print("2. Stone pickaxe     (Toughness: 25)       [COST: 4]")

@@ -8,7 +8,10 @@ def menu_inventory(p):
     print("{}'s inventory!".format(p.name))
     print("---")
     print("Pickaxe: {}/{}".format(p.pickaxe, p.max_pickaxe))
-    print("---")
+    print("Sword: {} ({}/{})".format(p.damage, p.sword, p.max_sword))
+    print("Armor: {}/{}".format(p.armor, p.max_armor))
+    if p.stone+p.copper+p.tin+p.iron+p.aluminum+p.gold+p.crystal+p.diamond+p.emerald+p.topaz+p.ruby+p.silver>0:
+        print("---")
     if p.stone != 0:
         print("Stone: {}".format(p.stone))
     if p.copper != 0:
