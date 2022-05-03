@@ -76,8 +76,11 @@ def menu_fight(p):  # sourcery no-metrics
                 print("You hit the enemy!")
                 rpcfightupdate(p)
             if r == 2:
-                p.armor -= 1
-                p.hp -= ceil(epw*0.25)
+                if p.armor>0:
+                    p.armor -= 1
+                    p.hp -= ceil(epw*0.25)
+                else:
+                    p.hp -= ceil(epw)
                 consoleClear()
                 print("---")
                 print("Enemy hit you!")
