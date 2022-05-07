@@ -1,4 +1,8 @@
-from extensions import richPresence, fileAssociation, saveCreate, saveCheck, savePort, saveCheatCheck
+from extensions import fileAssociation, settingsCreate
+
+settingsCreate.settingsCreate(fileAssociation.settingspath)
+
+from extensions import richPresence, saveCreate, saveCheck, savePort, saveCheatCheck
 
 saveCheatCheck.saveCheatCheck(fileAssociation.lastsavepath, fileAssociation.saves)
 savePort.savePort(fileAssociation.lastsavepath, fileAssociation.saves)

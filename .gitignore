@@ -6,5 +6,6 @@ modules/shop_pages/resources/__pycache__/*
 modules/craft_modules/__pycache__/*
 saves.ini
 saves.sqlite
+settings.sqlite
 saves.sqlite-journal
 extensions/lastsave.txt
