@@ -44,7 +44,9 @@ def settingsCreate(settingspath):
 
     d = 0
     while d != 1:
+        print("---")
         print("Choose language!")
+        print("---")
         print("1. English")
         print("2. Русский (Russian)")
         print("3. Українська (Ukrainian)")

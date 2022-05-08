@@ -20,7 +20,7 @@ lang = {
     'mine': config.get(section, "mine").encode('cp1251').decode('utf-8'),
     'pickaxe': config.get(section, "pickaxe").encode('cp1251').decode('utf-8'),
     'closed': config.get(section, "closed").encode('cp1251').decode('utf-8'),
-    'stats': config.get(section, "stats").encode('cp1251').decode('utf-8'),
+    'menustats': config.get(section, "menustats").encode('cp1251').decode('utf-8'),
     'hp': config.get(section, "hp").encode('cp1251').decode('utf-8'),
     'power': config.get(section, "power").encode('cp1251').decode('utf-8'),
     'inventory': config.get(section, "inventory").encode('cp1251').decode('utf-8'),
@@ -47,6 +47,22 @@ lang = {
     'spawn': config.get(section, "spawn").encode('cp1251').decode('utf-8'),
     'sands': config.get(section, "sands").encode('cp1251').decode('utf-8'),
     'snowkingdom': config.get(section, "snowkingdom").encode('cp1251').decode('utf-8'),
+    
+    # modules/menu_stats.py
+    'stats': config.get(section, "stats").encode('cp1251').decode('utf-8'),
+    'name': config.get(section, "name").encode('cp1251').decode('utf-8'),
+    'cls': config.get(section, "cls").encode('cp1251').decode('utf-8'),
+    'lvl': config.get(section, "lvl").encode('cp1251').decode('utf-8'),
+    'xp': config.get(section, "xp").encode('cp1251').decode('utf-8'),
+    'healing': config.get(section, "healing").encode('cp1251').decode('utf-8'),
+    'pwrboost': config.get(section, "pwrboost").encode('cp1251').decode('utf-8'),
+    'pwpotions': config.get(section, "pwpotions").encode('cp1251').decode('utf-8'),
+    'healpotions': config.get(section, "healpotions").encode('cp1251').decode('utf-8'),
+    'travelpasses': config.get(section, "travelpasses").encode('cp1251').decode('utf-8'),
+    'spawnpass': config.get(section, "spawnpass").encode('cp1251').decode('utf-8'),
+    'sandspass': config.get(section, "sandspass").encode('cp1251').decode('utf-8'),
+    'snowkingdompass': config.get(section, "spawnpass").encode('cp1251').decode('utf-8'),
+    'ntrtocontinue': config.get(section, "ntrtocontinue").encode('cp1251').decode('utf-8'),
     
 }
 
