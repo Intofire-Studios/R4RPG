@@ -42,6 +42,12 @@ lang = {
     'exittomain': config.get(section, "exittomain").encode('cp1251').decode('utf-8'),
     'newlang': config.get(section, "newlang").encode('cp1251').decode('utf-8'),
     
+    # modules/menu_location.py
+    'chooselocation': config.get(section, "chooselocation").encode('cp1251').decode('utf-8'),
+    'spawn': config.get(section, "spawn").encode('cp1251').decode('utf-8'),
+    'sands': config.get(section, "sands").encode('cp1251').decode('utf-8'),
+    'snowkingdom': config.get(section, "snowkingdom").encode('cp1251').decode('utf-8'),
+    
 }
 
 connection.close()

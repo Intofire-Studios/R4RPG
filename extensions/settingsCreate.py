@@ -47,7 +47,7 @@ def settingsCreate(settingspath):
         print("Choose language!")
         print("1. English")
         print("2. Русский (Russian)")
-        print("3. Українська (Ukranian)")
+        print("3. Українська (Ukrainian)")
         n = input("Number: ")
         if n == "1":
             lang = 'en'
