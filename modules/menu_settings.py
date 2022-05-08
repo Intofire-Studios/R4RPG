@@ -14,15 +14,15 @@ def menu_settings(p):
         print("---")
         print(lang['choosemain'] + "!")
         print("---")
-        print("1. Change language")
-        print("2. Exit to main menu")
+        print("1. " + lang['changelang'])
+        print("2. " + lang['exittomain'])
         n = input(lang['number'] + ": ")
         consoleClear()
         if n == "1":
             os.remove(settingspath)
             settingsCreate(settingspath)
             consoleClear()
-            print("The new language will be active after restarting the game")
+            print(lang['newlang'])
             sleep(3)
             break
         if n == "2":

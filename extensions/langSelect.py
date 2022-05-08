@@ -37,6 +37,11 @@ lang = {
     'number': config.get(section, "number").encode('cp1251').decode('utf-8'),
     'closing': config.get(section, "closing").encode('cp1251').decode('utf-8'),
 
+    # modules/menu_settings.py
+    'changelang': config.get(section, "changelang").encode('cp1251').decode('utf-8'),
+    'exittomain': config.get(section, "exittomain").encode('cp1251').decode('utf-8'),
+    'newlang': config.get(section, "newlang").encode('cp1251').decode('utf-8'),
+    
 }
 
 connection.close()
