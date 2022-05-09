@@ -47,7 +47,7 @@ def mainmenu(p):
         else:
             print("2. <" + lang['closed'] + ">")
         print("3. " + lang['menustats'] + " | " + lang['hp'] + f": {p.hp}/{p.max_hp} | " + lang['power'] + f": {p.pw}")
-        print("4. " + lang['inventory'])
+        print("4. " + lang['menuinventory'])
         if p.sp > 0:
             print("5. " + lang['upgrade'] + " | " + lang['skillpoints'] + f": {p.sp}")
         else:

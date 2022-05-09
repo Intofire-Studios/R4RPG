@@ -7,6 +7,7 @@ cursor = connection.cursor()
 
 cursor.execute("SELECT * FROM settings;")
 section = cursor.fetchone()[1].upper()
+defaultsection = 'EN'
 config.read(f"locales/{section.lower()}.ini")
 
 lang = {
@@ -23,7 +24,7 @@ lang = {
     'menustats': config.get(section, "menustats").encode('cp1251').decode('utf-8'),
     'hp': config.get(section, "hp").encode('cp1251').decode('utf-8'),
     'power': config.get(section, "power").encode('cp1251').decode('utf-8'),
-    'inventory': config.get(section, "inventory").encode('cp1251').decode('utf-8'),
+    'menuinventory': config.get(section, "menuinventory").encode('cp1251').decode('utf-8'),
     'upgrade': config.get(section, "upgrade").encode('cp1251').decode('utf-8'),
     'skillpoints': config.get(section, "skillpoints").encode('cp1251').decode('utf-8'),
     'shop': config.get(section, "shop").encode('cp1251').decode('utf-8'),
@@ -63,6 +64,23 @@ lang = {
     'sandspass': config.get(section, "sandspass").encode('cp1251').decode('utf-8'),
     'snowkingdompass': config.get(section, "spawnpass").encode('cp1251').decode('utf-8'),
     'ntrtocontinue': config.get(section, "ntrtocontinue").encode('cp1251').decode('utf-8'),
+    
+    # modules/menu_inventory.py
+    'inventory': config.get(section, "inventory").encode('cp1251').decode('utf-8'),
+    'sword': config.get(section, "sword").encode('cp1251').decode('utf-8'),
+    'armor': config.get(section, "armor").encode('cp1251').decode('utf-8'),
+    'stone': config.get(section, "stone").encode('cp1251').decode('utf-8'),
+    'copper': config.get(section, "copper").encode('cp1251').decode('utf-8'),
+    'tin': config.get(section, "tin").encode('cp1251').decode('utf-8'),
+    'iron': config.get(section, "iron").encode('cp1251').decode('utf-8'),
+    'aluminum': config.get(section, "aluminum").encode('cp1251').decode('utf-8'),
+    'silver': config.get(section, "silver").encode('cp1251').decode('utf-8'),
+    'topaz': config.get(section, "topaz").encode('cp1251').decode('utf-8'),
+    'gold': config.get(section, "gold").encode('cp1251').decode('utf-8'),
+    'crystal': config.get(section, "crystal").encode('cp1251').decode('utf-8'),
+    'diamond': config.get(section, "diamond").encode('cp1251').decode('utf-8'),
+    'ruby': config.get(section, "ruby").encode('cp1251').decode('utf-8'),
+    'emerald': config.get(section, "emerald").encode('cp1251').decode('utf-8'),
     
 }
 

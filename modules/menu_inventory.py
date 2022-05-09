@@ -1,41 +1,42 @@
 from extensions.richPresence import rpcinventoryupdate
 from extensions.cmdClear import consoleClear
+from extensions.langSelect import lang
 
 def menu_inventory(p):
     rpcinventoryupdate(p)
     consoleClear()
     print("---")
-    print("{}'s inventory!".format(p.name))
+    print(f"{p.name}" + lang['inventory'] + "!")
     print("---")
-    print("Pickaxe: {}/{}".format(p.pickaxe, p.max_pickaxe))
-    print("Sword: {} ({}/{})".format(p.damage, p.sword, p.max_sword))
-    print("Armor: {}/{}".format(p.armor, p.max_armor))
+    print(lang['pickaxe'] + f": {p.pickaxe}/{p.max_pickaxe}")
+    print(lang['sword'] + f": {p.damage} ({p.sword}/{p.max_sword})")
+    print(lang['armor'] + f": {p.armor}/{p.max_armor}")
     if p.stone+p.copper+p.tin+p.iron+p.aluminum+p.gold+p.crystal+p.diamond+p.emerald+p.topaz+p.ruby+p.silver>0:
         print("---")
     if p.stone != 0:
-        print("Stone: {}".format(p.stone))
+        print(lang['stone'] + f": {p.stone}")
     if p.copper != 0:
-        print("Сopper: {}".format(p.copper))
+        print(lang['copper'] + f": {p.copper}")
     if p.tin != 0:
-        print("Tin: {}".format(p.tin))
+        print(lang['tin'] + f": {p.tin}")
     if p.iron != 0:
-        print("Iron: {}".format(p.iron))
+        print(lang['iron'] + f": {p.iron}")
     if p.aluminum != 0:
-        print("Aluminum: {}".format(p.aluminum))
+        print(lang['aluminum'] + f": {p.aluminum}")
     if p.silver != 0:
-        print("Silver: {}".format(p.silver))
+        print(lang['silver'] + f": {p.silver}")
     if p.topaz != 0:
-        print("Topaz: {}".format(p.topaz))
+        print(lang['topaz'] + f": {p.topaz}")
     if p.gold != 0:
-        print("Gold: {}".format(p.gold))
+        print(lang['gold'] + f": {p.gold}")
     if p.crystal != 0:
-        print("Crystal: {}".format(p.crystal))
+        print(lang['crystal'] + f": {p.crystal}")
     if p.diamond != 0:
-        print("Diamond: {}".format(p.diamond))
+        print(lang['diamond'] + f": {p.diamond}")
     if p.ruby != 0:
-        print("Ruby: {}".format(p.ruby))
+        print(lang['ruby'] + f": {p.ruby}")
     if p.emerald != 0:
-        print("Emerald: {}".format(p.emerald))
+        print(lang['emerald'] + f": {p.emerald}")
     print("---")
-    input("Enter to continue.")
+    input(lang['ntrtocontinue'] + ".")
     consoleClear()
