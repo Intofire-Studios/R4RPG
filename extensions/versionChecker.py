@@ -4,7 +4,6 @@ import urllib.request
 import os
 import zipfile
 import shutil
-import time
 
 def versionChecker():
     try:

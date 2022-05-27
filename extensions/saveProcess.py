@@ -11,16 +11,16 @@ def saveProcess(p, path, pathsave):
                    DELETE from inventory where id = 1
                    """)
     cursor.close()
-    
+
     create_save = """
     INSERT INTO
         save (id, name, cls, hp, max_hp, heal_hp, pw, level, sp, money, xp, plus_pw, max_xp, pwpotion, hppotion, location, sandspass, snowkingdompass)
     VALUES
         (1, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
-    
+
     data = (p.name, p.cls, p.hp, p.max_hp, p.heal_hp, p.pw, p.level, p.sp, p.money, p.xp, p.plus_pw, p.max_xp, p.pwpotion, p.hppotion, p.location, p.sandspass, p.snowkingdompass)
-    
+
     create_inventory = """
         INSERT INTO
         inventory (id, pickaxe, max_pickaxe, stone, copper, tin, iron, aluminum, silver, topaz, gold, crystal, diamond, emerald, ruby, sword, max_sword, damage, armor, max_armor)
@@ -34,10 +34,7 @@ def saveProcess(p, path, pathsave):
     connection.close()
 
     realtime = os.path.getmtime(path)
-    if not os.path.exists(pathsave):
-        with open(pathsave, "w+") as newsave:
-            newsave.write(str(realtime))
-    else:
+    if os.path.exists(pathsave):
         os.remove(pathsave)
-        with open(pathsave, "w+") as newsave:
-            newsave.write(str(realtime))
+    with open(pathsave, "w+") as newsave:
+        newsave.write(str(realtime))

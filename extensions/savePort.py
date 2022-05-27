@@ -68,7 +68,7 @@ def savePort(pathsave, path):
                 snowkingdompass INTEGER
                 );
                 """
-                
+
         create_inventory_table = """
             CREATE TABLE IF NOT EXISTS inventory(
             id INTEGER PRIMARY KEY, 
@@ -113,12 +113,9 @@ def savePort(pathsave, path):
         connection.close()
 
         os.remove(oldpath)
-        
+
         realtime = os.path.getmtime(path)
-        if not os.path.exists(pathsave):
-            with open(pathsave, "w+") as newsave:
-                newsave.write(str(realtime))
-        else:
+        if os.path.exists(pathsave):
             os.remove(pathsave)
-            with open(pathsave, "w+") as newsave:
-                newsave.write(str(realtime))
+        with open(pathsave, "w+") as newsave:
+            newsave.write(str(realtime))

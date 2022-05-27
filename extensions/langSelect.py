@@ -82,6 +82,10 @@ lang = {
     'ruby': config.get(section, "ruby").encode('cp1251').decode('utf-8'),
     'emerald': config.get(section, "emerald").encode('cp1251').decode('utf-8'),
     
+    # modules/menu_upgrade.py
+    'upgrades': config.get(section, "upgrades").encode('cp1251').decode('utf-8'),
+    'hppower': config.get(section, "hppower").encode('cp1251').decode('utf-8'),
+    'pppower': config.get(section, "pppower").encode('cp1251').decode('utf-8'),
 }
 
 connection.close()

@@ -2,6 +2,7 @@ from extensions.saveProcess import saveProcess
 from extensions.cmdClear import consoleClear
 from extensions.richPresence import rpcupgradeupdate
 from extensions.fileAssociation import saves, lastsavepath
+from extensions.langSelect import lang
 
 def menu_upgrade(p):
     while p.sp > 0:
@@ -9,14 +10,14 @@ def menu_upgrade(p):
         rpcupgradeupdate(p)
         consoleClear()
         print("---")
-        print(f"Choose your upgrades! Skill points: {p.sp}")
+        print(lang['upgrades'] + "! " + lang['skillpoints'] + f": {p.sp}")
         print("---")
-        print(f"1. HP: {p.hp}/{p.max_hp}")
-        print(f"2. Power: {p.pw}")
-        print(f"3. Heal potions power: {p.heal_hp}")
-        print(f"4. Power potions power: {p.plus_pw}")
-        print("5. Exit to main menu")
-        n = input("Number: ")
+        print("1. " + lang['hp'] + f": {p.hp}/{p.max_hp}")
+        print("2. " + lang['power'] + f": {p.pw}")
+        print("3. " + lang['hppower'] + f": {p.heal_hp}")
+        print("4. " + lang['pppower'] + f": {p.plus_pw}")
+        print("5. " + lang['exittomain'])
+        n = input(lang['number'] + ": ")
         if n == "1":
             p.hp += 5
             p.sp -= 1
